@@ -15,6 +15,7 @@ npm install @june-so/charts
 To use the library, import the components you need and use them in your project:
 
 ```javascript
+import "@june-so/charts/dist/style.css";
 import { BarChart } from '@june-so/charts';
 ```
 
