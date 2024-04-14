@@ -1,3 +1,5 @@
+/// <reference types="vitest" />
+
 import dts from 'vite-plugin-dts';
 import { defineConfig } from 'vite';
 import tailwindcss from 'tailwindcss';
@@ -26,5 +28,11 @@ export default defineConfig({
         },
       },
     }
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/tests/setup.ts',
+    css: false,
   },
 })

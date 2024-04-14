@@ -112,7 +112,7 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, 
   const yAxisDomain = getYAxisDomain(autoMinValue, minValue, maxValue);
 
   return (
-    <div ref={ref} className={cx("w-full h-80", className)} {...other}>
+    <div data-testid="bar-chart-wrapper" ref={ref} className={cx("w-full h-80", className)} {...other}>
       <ResponsiveContainer className="h-full w-full">
         {data?.length ? (
           <ReChartsBarChart
