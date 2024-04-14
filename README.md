@@ -1,3 +1,5 @@
+![](/assets/logo.png)
+
 # June Charts
 
 This repository contains the source code for the June Charts library.
