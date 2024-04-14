@@ -2,6 +2,8 @@
 
 This repository contains the source code for the June Charts library.
 
+To see the components in action, visit the [Storybook](https://junehq.github.io/charts/).
+
 ## Installation
 
 To install the library, run the following command:
