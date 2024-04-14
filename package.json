@@ -1,7 +1,7 @@
 {
   "name": "@june-so/charts",
   "private": false,
-  "version": "0.0.7",
+  "version": "0.0.8",
   "type": "module",
   "files": [
     "dist"
@@ -10,6 +10,7 @@
   "exports": {
     ".": {
       "import": "./dist/charts.js",
+      "require": "./dist/charts.js",
       "types": "./dist/main.d.ts"
     },
     "./dist/style.css": "./dist/style.css"
