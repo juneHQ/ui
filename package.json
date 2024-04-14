@@ -3,6 +3,11 @@
   "private": false,
   "version": "0.0.3",
   "type": "module",
+  "files": ["dist"],
+  "module": "./dist/charts.js",
+  "exports": {
+    ".": "./dist/charts.js"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc --p ./tsconfig-build.json && vite build",
