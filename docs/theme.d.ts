@@ -1,0 +1,23 @@
+export declare const DEFAULT_COLOR: string;
+export declare const WHITE = "white";
+export declare const TRANSPARENT = "transparent";
+export declare const colorPalette: {
+    canvasBackground: number;
+    lightBackground: number;
+    background: number;
+    darkBackground: number;
+    darkestBackground: number;
+    lightBorder: number;
+    border: number;
+    darkBorder: number;
+    lightRing: number;
+    ring: number;
+    iconRing: number;
+    lightText: number;
+    text: number;
+    iconText: number;
+    darkText: number;
+    darkestText: number;
+    icon: number;
+};
+export declare const themeColorRange: string[];
