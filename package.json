@@ -22,7 +22,8 @@
     "preview": "vite preview",
     "prepublishOnly": "npm run build",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build -o docs"
+    "build-storybook": "storybook build -o docs",
+    "release-version": "npm version patch && git push && git push --tags"
   },
   "dependencies": {
     "recharts": "^2.12.5"
