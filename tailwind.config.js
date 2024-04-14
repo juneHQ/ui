@@ -1,0 +1,66 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./lib/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      zIndex: {
+        hide: -1,
+        auto: "auto",
+        base: 0,
+        docked: 10,
+        dropdown: 1000,
+        sticky: 1100,
+        banner: 1200,
+        overlay: 1300,
+        modal: 1400,
+        popover: 1500,
+        skipLink: 1600,
+        toast: 1700,
+        tooltip: 1800,
+      },
+      colors: {
+        purple: {
+          50: "#F0F0FE",
+          100: "#E1E1FD",
+          200: "#C3C3FC",
+          300: "#A4A4FA",
+          400: "#8686F9",
+          500: "#6868F7",
+          600: "#5353C6",
+          700: "#3E3E94",
+          800: "#2A2A63",
+          900: "#151531",
+        },
+        green: {
+          50: "#f0fff4",
+          100: "#c6f6d5",
+          200: "#9ae6b4",
+          300: "#68d391",
+          400: "#48bb78",
+          500: "#38a169",
+          600: "#26A559",
+          700: "#276749",
+          800: "#22543d",
+          900: "#1C4532",
+        },
+        gray: {
+          25: "#fcfdfe",
+          50: "#F8F9FA",
+          100: "#F1F3F5",
+          200: "#E9ECEF",
+          300: "#DEE2E6",
+          400: "#CED4DA",
+          500: "#ADB5BD",
+          600: "#868E96",
+          700: "#495057",
+          800: "#343A40",
+          900: "#0D131B",
+        },
+      },
+    },
+  },
+  plugins: [],
+}
+
