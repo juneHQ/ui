@@ -44,12 +44,13 @@ export const PowerUsersL7D: Story = {
     categories: ["groupsPercentage"],
     index: "name",
     valueFormatter: (value: number) => `${value}%`,
+    tooltipSubtitleFormatter: (payload: any) => `Click to see all ${payload.payload.groupsCount} companies`,
     data: [
       {
         name: "1 Day",
         days: 1,
         groupsPercentage: 40,
-        groupsCount: 0,
+        groupsCount: 100,
       },
       {
         name: "2 Days",
