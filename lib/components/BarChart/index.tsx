@@ -9,7 +9,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import React, { useState } from 'react';
+import React from 'react';
 import NoData from '../NoData';
 import {
   addLoadedIdToElement,
@@ -27,7 +27,26 @@ export interface BarChartProps extends BaseChartProps {
   stack?: boolean;
   relative?: boolean;
   barCategoryGap?: string | number;
+  tooltipSubtitleFormatter?: (payload: any) => string;
 }
+
+const renderShape = (
+  props: any,
+) => {
+  return (
+    <>
+      <rect
+        x={props.background.x}
+        y={props.background.y}
+        width={props.background.width}
+        height={props.background.height}
+        opacity={0}
+      />
+      test
+      <Rectangle radius={[5, 5, 0, 0]} {...props} />
+    </>
+  );
+};
 
 
 export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, ref) => {
@@ -59,6 +78,7 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, 
     rotateLabelX,
     barCategoryGap,
     tickGap = 5,
+    tooltipSubtitleFormatter,
     className,
     ...other
   } = props;
@@ -66,23 +86,22 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, 
   const paddingValue = !showXAxis && !showYAxis ? 0 : 20;
   const categoryColors = constructCategoryColors(categories, colors);
   const [activeBar, setActiveBar] = React.useState<any | undefined>(undefined);
-  const [activeLegend, setActiveLegend] = useState<string | undefined>(undefined);
+
   const hasOnValueChange = !!onValueChange;
 
-  function onBarClick(data: any, _: number, event: React.MouseEvent) {
+  function onBarClick(data: any, index: number, event: React.MouseEvent) {
     event.stopPropagation();
     if (!onValueChange) return;
     if (deepEqual(activeBar, { ...data.payload, value: data.value })) {
-      setActiveLegend(undefined);
       setActiveBar(undefined);
       onValueChange?.(null);
     } else {
-      setActiveLegend(data.tooltipPayload?.[0]?.dataKey);
       setActiveBar({
         ...data.payload,
         value: data.value,
       });
       onValueChange?.({
+        index,
         eventType: "bar",
         categoryClicked: data.tooltipPayload?.[0]?.dataKey,
         ...data.payload,
@@ -102,10 +121,9 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, 
             stackOffset={stack ? "sign" : relative ? "expand" : "none"}
             layout={"horizontal"}
             onClick={
-              hasOnValueChange && (activeLegend || activeBar)
+              hasOnValueChange && activeBar
                 ? () => {
                     setActiveBar(undefined);
-                    setActiveLegend(undefined);
                     onValueChange?.(null);
                   }
                 : undefined
@@ -176,6 +194,7 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, 
                         payload={payload}
                         label={label}
                         valueFormatter={valueFormatter}
+                        tooltipSubtitleFormatter={tooltipSubtitleFormatter}
                       />
                     )
                 ) : (
@@ -186,7 +205,7 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, 
             />
             {categories.map((category) => (
               <Bar
-                className="fill-purple-500 rounded-lg cursor-pointer"
+                className="fill-purple-500 rounded-lg cursor-pointer h-full"
                 key={category}
                 name={category}
                 type="linear"
@@ -195,7 +214,7 @@ export const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>((props, 
                 fill=""
                 isAnimationActive={showAnimation}
                 animationDuration={animationDuration}
-                shape={(props: any) => <Rectangle radius={[5, 5, 0, 0]} {...props} />}
+                shape={(props: any) => renderShape(props)}
                 onClick={onBarClick}
                 onAnimationEnd={() => addLoadedIdToElement()}
               />
