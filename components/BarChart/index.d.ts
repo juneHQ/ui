@@ -5,5 +5,6 @@ export interface BarChartProps extends BaseChartProps {
     stack?: boolean;
     relative?: boolean;
     barCategoryGap?: string | number;
+    tooltipSubtitleFormatter?: (payload: any) => string;
 }
 export declare const BarChart: React.ForwardRefExoticComponent<BarChartProps & React.RefAttributes<HTMLDivElement>>;

@@ -4,6 +4,7 @@ interface ChartTooltipProps {
     payload: any;
     active?: boolean;
     valueFormatter: (value: number) => string;
+    tooltipSubtitleFormatter?: (payload: any) => string;
 }
 export declare const ChartTooltip: React.FC<ChartTooltipProps>;
 export {};
