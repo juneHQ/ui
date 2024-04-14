@@ -29,6 +29,9 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook
 
+      - name: Create .nojekyll
+        run: touch docs/.nojekyll
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
