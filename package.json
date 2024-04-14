@@ -10,6 +10,7 @@
   "exports": {
     ".": {
       "import": "./dist/charts.js",
+      "require": "./dist/charts.js",
       "types": "./dist/main.d.ts"
     },
     "./dist/style.css": "./dist/style.css"
