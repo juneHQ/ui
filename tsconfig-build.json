@@ -1,12 +1,4 @@
 {
   "extends": "./tsconfig.json",
   "include": ["lib"],
-  "moduleResolution": "bundler",
-  "allowImportingTsExtensions": true,
-  "resolveJsonModule": true,
-  "isolatedModules": true,
-  "noEmit": true,
-  "declaration": true,
-  "jsx": "react-jsx",
-  "typeRoots": ["./dist/main.d.ts"],
 }
