@@ -1,14 +1,18 @@
 {
   "name": "@june-so/charts",
   "private": false,
-  "version": "0.0.5",
+  "version": "0.0.6",
   "type": "module",
   "files": [
     "dist"
   ],
   "module": "./dist/charts.js",
   "exports": {
-    ".": "./dist/charts.js"
+    ".": {
+      "import": "./dist/charts.js",
+      "types": "./dist/main.d.ts"
+    },
+    "./dist/style.css": "./dist/style.css"
   },
   "scripts": {
     "dev": "vite",
