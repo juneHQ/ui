@@ -8,7 +8,11 @@
   ],
   "module": "./dist/charts.js",
   "exports": {
-    ".": "./dist/charts.js"
+    ".": {
+      "import": "./dist/charts.js",
+      "types": "./dist/main.d.ts"
+    },
+    "./dist/style.css": "./dist/style.css"
   },
   "scripts": {
     "dev": "vite",
