@@ -1,9 +1,11 @@
 {
   "name": "@june-so/charts",
   "private": false,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "module": "./dist/charts.js",
   "exports": {
     ".": "./dist/charts.js"
