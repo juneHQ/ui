@@ -37,17 +37,5 @@ This will update the version number in the `package.json` file and create a new 
 
 After that, you can publish the new version to NPM by merging your changes to the `main` branch.
 
-## TODO
-
-- [x] Fix broken imports and themes
-- [x] Add Storybook to be able to see the components in isolation
-- [x] Add Tailwind CSS to the project to be able to style the components
-- [x] Build the tooltip component to be able to show the data on hover
-- [x] Deploy the library to NPM
-- [x] Automate the release process
-- [ ] Set up the CI pipeline and testing framework
-- [ ] Add tests for the first component
-- [ ] Add more of our components to the library
-
 
 
