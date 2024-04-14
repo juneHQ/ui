@@ -9,7 +9,8 @@ permissions:
   contents: write
 
 jobs:
-  build-storybook:
+  build-and-deploy-storybook:
+    concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
 
     steps:
@@ -28,17 +29,7 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook
 
-  deploy-storybook:
-    needs: build-storybook
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          branch: gh-pages
           folder: docs
