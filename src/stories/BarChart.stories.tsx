@@ -1,3 +1,4 @@
+import { Grid } from '../../lib/components/Grid';
 import { BarChart } from '../../lib/components/BarChart';
 
 import type { Meta, StoryObj } from "@storybook/react";
@@ -17,7 +18,7 @@ const data = [
 const meta: Meta<typeof BarChart> = {
   title: "Visualizations/Chart/BarChart",
   component: BarChart,
-  args: { categories: ["Sales"], index: "month", data, className: "h-72" },
+  args: { categories: ["Sales"], index: "month", data, className: "h-72"},
   parameters: {
     sourceLink:
       "https://github.com/juneHQ/june-charts/tree/main/lib/components/BarChart/index.tsx",
@@ -39,7 +40,29 @@ export const Default: Story = {
   args: {},
 };
 
+export const WithGrid: Story = {
+  render: (args) => (
+    <>
+      <BarChart {...args} >
+        <Grid />
+      </BarChart>
+    </>
+  ),
+  args: {
+    data,
+    categories: ["Sales"],
+    index: "month",
+  },
+};
+
 export const PowerUsersL7D: Story = {
+  render: (args) => (
+    <>
+      <BarChart {...args} >
+        <Grid />
+      </BarChart>
+    </>
+  ),
   args: {
     categories: ["groupsPercentage"],
     index: "name",
