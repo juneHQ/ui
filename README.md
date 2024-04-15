@@ -23,7 +23,7 @@ We think our app requirements will be broad enough to cover what you'll need in 
 To install the library, run the following command:
 
 ```bash
-npm install @june-so/charts
+npm install @june-so/ui
 ```
 
 ## Usage
@@ -31,8 +31,8 @@ npm install @june-so/charts
 To use the library, import the components you need and use them in your project:
 
 ```javascript
-import "@june-so/charts/dist/style.css";
-import { BarChart } from '@june-so/charts';
+import "@june-so/ui/dist/style.css";
+import { BarChart } from '@june-so/ui';
 ```
 
 That's it for now! This library is still in alpha development, so don't expect too much from it just yet.
@@ -43,7 +43,7 @@ That's it for now! This library is still in alpha development, so don't expect t
 To start developing the library, clone the repository and install the dependencies:
 
 ```bash
-git clone https://github.com/junehq/charts.git
+git clone https://github.com/junehq/ui.git
 cd charts
 npm install
 ```
