@@ -1,8 +1,7 @@
 /// <reference types="react" />
-interface IEmptyStateProps {
+export interface EmptyStateProps {
     IconComponent?: React.ElementType;
     noDataText?: string;
     noDataSubText?: string;
 }
-declare const EmptyState: React.FC<IEmptyStateProps>;
-export default EmptyState;
+export declare const EmptyState: React.FC<EmptyStateProps>;

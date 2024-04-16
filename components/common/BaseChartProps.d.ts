@@ -21,6 +21,7 @@ export interface BaseChartProps extends BaseAnimationTimingProps, React.HTMLAttr
     categories: string[];
     index: string;
     colors?: string[];
+    children?: React.ReactNode;
     valueFormatter?: ValueFormatter;
     startEndOnly?: boolean;
     showXAxis?: boolean;
