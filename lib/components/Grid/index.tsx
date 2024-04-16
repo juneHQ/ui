@@ -1,14 +1,11 @@
+import { CartesianGrid as Grid } from 'recharts';
 
-import { CartesianGrid } from 'recharts';
+export const defaultGridProps = {
+  vertical: false,
+  horizontal: true,
+  strokeDasharray: "3",
+  className: "stroke-1",
+};
 
-export const Grid = () => {
-  debugger;
-  return (
-    <CartesianGrid
-      className="stroke-1"
-      strokeDasharray="3"
-      vertical={false}
-      horizontal={true}
-      />
-  );
-}
+
+export { Grid };

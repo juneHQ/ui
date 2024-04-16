@@ -1,22 +1,27 @@
 
-interface ChartTooltipProps {
-  label: string;
-  payload: any;
+import { Tooltip as RechartsTooltip } from 'recharts';
+import { ChartTooltipValue } from './Value';
+import { ChartTooltipTitle } from './Title';
+import { ChartTooltipFooter } from './Footer';
+import { DefaultTooltip } from './DefaultTooltip';
+
+export interface TooltipProps {
+  label?: string;
   active?: boolean;
-  valueFormatter: (value: number) => string;
-  tooltipSubtitleFormatter?: (payload: any) => string;
+  payload?: any[];
+  valueFormatter: (payload: any) => string;
+  footerFormatter?: (payload: any) => string;
 }
 
-export const ChartTooltip: React.FC<ChartTooltipProps> = ({ label, payload, active, valueFormatter, tooltipSubtitleFormatter }) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="bg-gray-900 px-3 py-2 rounded-md">
-        <p className="text-xs text-gray-400">{label}</p>
-        <p className="text-sm text-white">{valueFormatter(payload[0].value)}</p>
-        {tooltipSubtitleFormatter && <p className="text-xs text-gray-400 pt-2">{tooltipSubtitleFormatter(payload[0])}</p>}
-      </div>      
-    );
-  }
-  return null;
+class ChartTooltip extends RechartsTooltip<any, any> {
+  static defaultProps = {
+    ...RechartsTooltip.defaultProps,
+    cursor: { fill: "#d1d5db", opacity: "0.15" } as any,
+    position: { y: 0 },
+    isAnimationActive: false,
+    wrapperStyle: { outline: "none" },
+  };
 }
 
+
+export { ChartTooltip, ChartTooltipTitle, ChartTooltipValue, ChartTooltipFooter, DefaultTooltip };
