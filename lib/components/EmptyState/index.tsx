@@ -1,12 +1,12 @@
 import { EventIcon } from '../../assets/EventIcon';
 
-interface IEmptyStateProps {
+export interface EmptyStateProps {
   IconComponent?: React.ElementType;
   noDataText?: string;
   noDataSubText?: string;
 }
 
-const EmptyState: React.FC<IEmptyStateProps> = ({
+export const EmptyState: React.FC<EmptyStateProps> = ({
   IconComponent = EventIcon,
   noDataText = "There's no data for this insight",
   noDataSubText = "Make sure you selected the correct events and timerange",
@@ -26,4 +26,3 @@ const EmptyState: React.FC<IEmptyStateProps> = ({
   );
 };
 
-export default EmptyState;
