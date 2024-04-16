@@ -1,7 +1,7 @@
 
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '../test-utils';
-import { BarChart } from '../../../lib/components/BarChart';
+import { BarChart, ChartTooltip, DefaultTooltip } from '../../../lib/main';
 
 describe('BarChart', () => {
   const mockData = [
@@ -14,14 +14,12 @@ describe('BarChart', () => {
     expect(await screen.findByTestId('bar-chart-wrapper')).toBeInTheDocument();
   });
 
-  it('should display no data text when data is empty', async () => {
-    const noDataText = "No data available";
-    render(<BarChart categories={['Power users']} data={[]} index="month" noDataText={noDataText} />);
-    expect(await screen.findByText(noDataText)).toBeInTheDocument();
-  });
 
   it('tooltips are visible on hover', async () => {
-    const { container } = render(<BarChart data={mockData} categories={['Sales']} index="month" />);
+    const { container } = render(
+    <BarChart data={mockData} categories={['Sales']} index="month" >
+      <ChartTooltip content={({ active, payload, label }) => <DefaultTooltip label={label} active={active} payload={payload} valueFormatter={(p)=> `${p.Sales} Sales`} />} />
+    </BarChart>);
     const user = userEvent.setup();
     const element = container.querySelector('recharts-tooltip-wrapper');
 

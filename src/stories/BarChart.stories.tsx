@@ -1,8 +1,16 @@
-import { Grid } from '../../lib/components/Grid';
+import {
+  BarItem,
+  ChartTooltip,
+  DefaultTooltip,
+  defaultXAxisProps,
+  defaultYAxisProps,
+  XAxis,
+  YAxis,
+} from '../../lib/main';
+import { defaultGridProps, Grid } from '../../lib/components/Grid';
 import { BarChart } from '../../lib/components/BarChart';
 
 import type { Meta, StoryObj } from "@storybook/react";
-
 const data = [
   {
     month: "Jan 24",
@@ -29,45 +37,28 @@ export default meta;
 
 type Story = StoryObj<typeof BarChart>;
 
-
-export const EmptyData: Story = {
-  args: {
-    data: [],
-  },
-};
-
 export const Default: Story = {
-  args: {},
-};
-
-export const WithGrid: Story = {
+  args: { categories: ["Sales"], index: "month", data, className: "h-72"},
   render: (args) => (
     <>
       <BarChart {...args} >
-        <Grid />
+        <Grid  {...defaultGridProps}  />
+        <ChartTooltip 
+            content={({ active, payload, label }) => <DefaultTooltip label={label} active={active} payload={payload} valueFormatter={(p)=> `${p.Sales} Sales`} />}
+        />
+        <BarItem dataKey="Sales" />
+        <YAxis {...defaultYAxisProps} />
+        <XAxis {...defaultXAxisProps} dataKey="month" />
       </BarChart>
     </>
   ),
-  args: {
-    data,
-    categories: ["Sales"],
-    index: "month",
-  },
 };
 
 export const PowerUsersL7D: Story = {
-  render: (args) => (
-    <>
-      <BarChart {...args} >
-        <Grid />
-      </BarChart>
-    </>
-  ),
+
   args: {
     categories: ["groupsPercentage"],
     index: "name",
-    valueFormatter: (value: number) => `${value}%`,
-    tooltipSubtitleFormatter: (payload: any) => `Click to see all ${payload.payload.groupsCount} companies`,
     data: [
       {
         name: "1 Day",
@@ -113,4 +104,16 @@ export const PowerUsersL7D: Story = {
       },
     ],
   },
+
+  render: (args) => (
+    <BarChart {...args}>
+      <Grid  {...defaultGridProps}  />
+      <ChartTooltip 
+          content={({ active, payload, label }) => <DefaultTooltip label={label} active={active} payload={payload} valueFormatter={(payload: any) => `${payload.groupsPercentage}%`} footerFormatter={(payload: any) => `Click to see all ${payload.groupsCount} companies`} />}
+      />
+      <BarItem dataKey="groupsPercentage" />
+      <YAxis {...defaultYAxisProps} />
+      <XAxis {...defaultXAxisProps} dataKey="name" />
+    </BarChart>
+  ),
 };
