@@ -1,14 +1,15 @@
 import {
+  BarChart,
   BarItem,
   ChartTooltip,
+  defaultGridProps,
   DefaultTooltip,
   defaultXAxisProps,
   defaultYAxisProps,
   XAxis,
   YAxis,
 } from '../../lib/main';
-import { defaultGridProps, Grid } from '../../lib/components/Grid';
-import { BarChart } from '../../lib/components/BarChart';
+import { Grid } from '../../lib/components/Grid';
 
 import type { Meta, StoryObj } from "@storybook/react";
 const data = [
