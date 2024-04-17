@@ -22,7 +22,7 @@ export class BarItem extends RechartsBar {
   static defaultProps = {
     ...RechartsBar.defaultProps,
     type: "linear",
-    className: "fill-purple-500 rounded-lg cursor-pointer h-full",
+    className: "fill-purple-500 rounded-lg h-full",
     shape: (props: any) => renderShape(props),
     fill:"",
     isAnimationActive: true,
