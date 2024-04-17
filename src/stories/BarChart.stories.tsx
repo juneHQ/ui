@@ -1,3 +1,4 @@
+import '@june-so/ui/dist/style.css';
 import {
   BarChart,
   BarItem,

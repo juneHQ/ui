@@ -1,19 +1,19 @@
 {
   "name": "@june-so/ui",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "files": [
     "dist"
   ],
-  "module": "./dist/charts.js",
+  "module": "./dist/ui.js",
   "exports": {
     ".": {
-      "import": "./dist/charts.js",
-      "require": "./dist/charts.js",
+      "import": "./dist/ui.js",
+      "require": "./dist/ui.js",
       "types": "./dist/main.d.ts"
     },
-    "./dist/style.css": "./dist/style.css"
+    "./style.css": "./dist/style.css"
   },
   "scripts": {
     "dev": "vite",
