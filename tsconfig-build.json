@@ -1,4 +1,14 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["lib"],
+  "include": ["./lib/**/*.ts", "./lib/**/*.tsx"],
+  "compilerOptions": {
+    "composite": true,
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "declaration": true
+  },
 }
+
