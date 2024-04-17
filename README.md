@@ -31,7 +31,7 @@ npm install @june-so/ui
 To use the library, import the components you need and use them in your project:
 
 ```javascript
-import "@june-so/ui/dist/style.css";
+import "@june-so/ui/style.css";
 import { BarChart } from '@june-so/ui';
 ```
 
