@@ -12,8 +12,9 @@ const renderShape = (
         width={props.background.width}
         height={props.background.height}
         opacity={0}
+        cursor={props.cursor ?? "pointer"}
       />
-      <Rectangle radius={[5, 5, 0, 0]} {...props} />
+      <Rectangle radius={[5, 5, 0, 0]} cursor={props.cursor ?? "pointer"} {...props} />
     </>
   );
 };
