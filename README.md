@@ -44,7 +44,7 @@ To start developing the library, clone the repository and install the dependenci
 
 ```bash
 git clone https://github.com/junehq/ui.git
-cd charts
+cd ui
 npm install
 ```
 
