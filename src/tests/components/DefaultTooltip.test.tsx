@@ -1,3 +1,4 @@
+import React from 'react';
 import { render, screen } from '../test-utils';
 import { DefaultTooltip } from '../../../lib/main';
 

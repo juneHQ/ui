@@ -1,4 +1,3 @@
-
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '../test-utils';
 import { BarChart, ChartTooltip, DefaultTooltip } from '../../../lib/main';
