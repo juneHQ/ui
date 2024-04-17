@@ -7,4 +7,4 @@ export interface BarChartProps extends BaseChartProps {
     className?: string;
     showYAxis?: boolean;
 }
-export declare const BarChart: React.ForwardRefExoticComponent<BarChartProps & React.RefAttributes<HTMLDivElement>>;
+export declare const BarChart: any;
