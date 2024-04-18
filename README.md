@@ -27,15 +27,18 @@ To see the components in action, visit the [Storybook](https://junehq.github.io/
 
 ## Philosophy
 
-This library is an experiment to be a middle ground between the abstract, application-agnostic Application UI libraries like Tailwind UI, built for imaginary applications, and design systems built for specific companies like Shopify Polaris.
+This library is an experiment to be a middle ground between Application UI templates like Tailwind UI, and design systems built for specific companies like Shopify Polaris.
 
-The goal is to provide a set of high-quality beautiful components that can be easily integrated into any project without the need for customizations.
+The goal is to provide a set of high-quality beautiful components and charts, that can be easily integrated into any project without the need for customization.
 
-The components are not meant to be as composable like Radix UI or React Aria - they are meant to be good enough to be used as is, but customizable enough to fit into most functionality requirements.
+The components are not meant to be as composable as Radix UI - they are meant to be good enough to be used as is, but customizable enough to fit the needs of most small apps.
 
-Our approach is to only build components that we need for [June](https://june.so), but to build them in a way that they can be easily reused in other projects.
+Our approach is to extract generic components from [June](https://june.so) and make them:
 
-We think our app requirements will be broad enough to cover what you'll need in your next big idea - and flexible enough so you can have a solid foundation for when you need to build your own unique components and designs.
+- Easily reusable
+- Beautiful and polished - to be used as is
+- Flexible enough - to be customized when needed
+
 
 ## Installation
 
