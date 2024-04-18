@@ -21,6 +21,7 @@ export const CommandInput: React.FC<ICommandInputProps> = ({
     />
   ),
   className,
+  value,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -54,6 +55,7 @@ export const CommandInput: React.FC<ICommandInputProps> = ({
         as="input"
         ref={inputRef}
         autoComplete="off"
+        value={value ?? ""}
         onChange={onChange}
         placeholder={placeholder ?? "Search..."}
         className="block w-full rounded-md border-0 py-1.5 pl-8 pr-14 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  focus:ring-gray-300 sm:text-sm sm:leading-4"
