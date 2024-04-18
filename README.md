@@ -1,10 +1,12 @@
-![](/assets/logo.png)
+![](/assets/hero.png)
 
 # June UI
 
 This repository contains the source code for the June UI library.
 
 To see the components in action, visit the [Storybook](https://junehq.github.io/ui/).
+
+![](/assets/screenshot.png)
 
 ## Philosophy
 
