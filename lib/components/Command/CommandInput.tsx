@@ -44,6 +44,7 @@ export const CommandInput: React.FC<ICommandInputProps> = ({
     return () => {
       window.removeEventListener("keyup", handleKeyUp);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
