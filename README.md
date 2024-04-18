@@ -2,7 +2,6 @@
 
 <div align="center">
 <br />
-<br />
 
 <div align="center">
   <a href="https://www.npmjs.com/package/@june-so/ui">
@@ -15,6 +14,7 @@
     <img src="https://img.shields.io/twitter/follow/JuneDotSo?style=social" alt="Follow at JuneDotSo" />
   </a>
 </div>
+<br />
 
 # React components to build charts and dashboards
 
