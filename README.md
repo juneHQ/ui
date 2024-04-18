@@ -1,6 +1,22 @@
 ![](/assets/hero.png)
 
-# June UI
+<div align="center">
+<br />
+<br />
+
+<div align="center">
+  <a href="https://www.npmjs.com/package/@june-so/ui">
+    <img alt="npm" src="https://img.shields.io/npm/dm/@june-so/ui?color=6868F7&label=npm&logo=npm&labelColor=F0F0FE">
+  </a>
+  <a href="https://github.com/juneHQ/ui/blob/main/LICENSE">
+    <img alt="MIT" src="https://img.shields.io/github/license/juneHQ/ui" height="20" width="auto">
+  </a>
+  <a href="https://twitter.com/intent/follow?screen_name=JuneDotSo">
+    <img src="https://img.shields.io/twitter/follow/JuneDotSo?style=social" alt="Follow at JuneDotSo" />
+  </a>
+</div>
+
+# React components to build charts and dashboards
 
 This repository contains the source code for the June UI library.
 
