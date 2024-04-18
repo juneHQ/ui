@@ -113,7 +113,7 @@ export const PowerUsersL7D: Story = {
           content={({ active, payload, label }) => <DefaultTooltip label={label} active={active} payload={payload} valueFormatter={(payload: any) => `${payload.groupsPercentage}%`} footerFormatter={(payload: any) => `Click to see all ${payload.groupsCount} companies`} />}
       />
       <BarItem dataKey="groupsPercentage" />
-      <YAxis {...defaultYAxisProps} />
+      <YAxis {...defaultYAxisProps} tickFormatter={(p)=> `${p}%`} />
       <XAxis {...defaultXAxisProps} dataKey="name" />
     </BarChart>
   ),
