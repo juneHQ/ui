@@ -16,3 +16,4 @@ export { ChartTooltip, DefaultTooltip, ChartTooltipTitle, ChartTooltipValue, Cha
 export { EmptyState } from './components/EmptyState'
 export type { EmptyStateProps } from './components/EmptyState'
 export { Lifecycle, Command, CommandOption, CommandList, CommandInput } from './components/Command'
+export { Popover } from './components/Popover'

@@ -16,7 +16,7 @@ export const CommandInput: React.FC<ICommandInputProps> = ({
   onChange,
   icon = (
     <MagnifyingGlassIcon
-      className="pointer-events-none absolute inset-y-0 mt-1.5 left-2 h-full w-4 text-gray-400"
+      className="pointer-events-none absolute inset-y-0 left-2 h-full w-4 text-gray-400"
       aria-hidden="true"
     />
   ),
