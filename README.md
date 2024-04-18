@@ -1,20 +1,21 @@
 ![](/assets/hero.png)
 
 <div align="center">
-<br />
+  <br />
 
-<div align="center">
-  <a href="https://www.npmjs.com/package/@june-so/ui">
-    <img alt="NPM Downloads" src="https://img.shields.io/npm/d18m/%40june-so%2Fui">
-  </a>
-  <a href="https://github.com/juneHQ/ui/blob/main/LICENSE">
-    <img alt="MIT" src="https://img.shields.io/github/license/juneHQ/ui" height="20" width="auto">
-  </a>
-  <a href="https://twitter.com/intent/follow?screen_name=JuneDotSo">
-    <img src="https://img.shields.io/twitter/follow/JuneDotSo?style=social" alt="Follow at JuneDotSo" />
-  </a>
+  <div align="center">
+    <a href="https://www.npmjs.com/package/@june-so/ui">
+      <img alt="NPM Downloads" src="https://img.shields.io/npm/d18m/%40june-so%2Fui">
+    </a>
+    <a href="https://github.com/juneHQ/ui/blob/main/LICENSE">
+      <img alt="MIT" src="https://img.shields.io/github/license/juneHQ/ui" height="20" width="auto">
+    </a>
+    <a href="https://twitter.com/intent/follow?screen_name=JuneDotSo">
+      <img src="https://img.shields.io/twitter/follow/JuneDotSo?style=social" alt="Follow at JuneDotSo" />
+    </a>
+  </div>
+  <br />
 </div>
-<br />
 
 # React components to build charts and dashboards
 
