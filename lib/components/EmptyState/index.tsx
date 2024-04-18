@@ -23,6 +23,6 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
         </p>
       </div>
     </div>
-  );
+  );  
 };
 
