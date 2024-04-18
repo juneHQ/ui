@@ -1,4 +1,4 @@
-import { EventIcon } from '../../assets/EventIcon';
+import { EventIcon } from '../../icons/EventIcon';
 
 export interface EmptyStateProps {
   IconComponent?: React.ElementType;
@@ -23,6 +23,6 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
         </p>
       </div>
     </div>
-  );
+  );  
 };
 

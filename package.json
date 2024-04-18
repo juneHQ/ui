@@ -28,6 +28,7 @@
     "release-version": "npm version patch && git push && git push --tags"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.19",
     "recharts": "^2.12.5"
   },
   "devDependencies": {

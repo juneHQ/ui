@@ -15,4 +15,5 @@ export { defaultGridProps } from './components/Grid/constants'
 export { ChartTooltip, DefaultTooltip, ChartTooltipTitle, ChartTooltipValue, ChartTooltipFooter } from './components/ChartTooltip'
 export { EmptyState } from './components/EmptyState'
 export type { EmptyStateProps } from './components/EmptyState'
-
+export { Lifecycle, Command, CommandOption, CommandList, CommandInput } from './components/Command'
+export { Popover } from './components/Popover'

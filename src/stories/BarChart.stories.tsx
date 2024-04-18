@@ -1,4 +1,3 @@
-import '../../lib/styles.css';
 import {
   BarChart,
   BarItem,
