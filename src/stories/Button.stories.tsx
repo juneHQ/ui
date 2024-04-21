@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "../../lib/components/Button";
+import { MagnifyingGlassIcon } from "../../lib/icons/MagnifyingGlassIcon.tsx";
 
 const meta: Meta<typeof Button> = {
   title: "Components/Button",
@@ -51,5 +52,16 @@ export const Loading: Story = {
     children: "this is button",
     color: "purple",
     loading: true,
+  },
+};
+
+export const WithIcon: Story = {
+  args: {
+    children: (
+      <>
+        <MagnifyingGlassIcon />
+        Search
+      </>
+    ),
   },
 };

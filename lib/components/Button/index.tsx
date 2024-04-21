@@ -10,12 +10,11 @@ type ButtonProps = {
 
 const baseStyle =
   "inline-flex appearance-none items-center justify-center select-none relative whitespace-nowrap" +
-  "align-middle outline-none rounded-md font-medium transition-colors min-w-[2.5rem] text-sm px-8 py-1.5 h-8";
+  "align-middle outline-none rounded-md font-medium transition-colors min-w-[2.5rem] text-sm px-8 py-1.5 h-8 gap-2";
 
 const variantStyles = {
   solid: "border shadow-subtle",
-  outline:
-    "bg-transparent border border-gray-200 hover:bg-gray-100 hover:bg-opacity-10",
+  outline: "bg-transparent border border-current hover:bg-opacity-50",
   ghost: "bg-transparent border-none",
 };
 
@@ -26,15 +25,16 @@ const colorsStyles = {
   gray: {
     solid:
       "text-gray-800 bg-whiteAlpha-900 border-gray-200 hover:bg-gray-100 active:bg-gray-300",
-    ghost: "text-gray-500 hover:bg-gray-50 border-none bg-transparent", // todo active
-    outline: "border-current text-gray-800 active:bg-gray-200", // todo: in app text color is "inherit"
+    ghost: "text-gray-800 hover:bg-gray-100 active:bg-gray-200 bg-transparent",
+    outline:
+      "border-gray-200 text-gray-800 hover:bg-gray-100 active:bg-gray-200",
   },
   purple: {
     solid:
       "bg-purple-500 text-white hover:bg-purple-600 border-none active:bg-purple-700",
     ghost:
       "text-purple-500 border-none bg-transparent hover:bg-purple-50 active:bg-purple-100",
-    outline: "text-gray-800 border-current", // todo active
+    outline: "text-purple-500 hover:bg-purple-50 active:bg-purple-100",
   },
 };
 
