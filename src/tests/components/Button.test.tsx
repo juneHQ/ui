@@ -47,7 +47,7 @@ describe("Button Component", () => {
     expect(screen.getByText("Submitting")).toBeInTheDocument();
   });
 
-  it("should not be clickable when loading", () => {
+  it("should not be clickable when loading", async () => {
     const onClick = vi.fn();
     render(
       <Button onClick={onClick} loading>
@@ -56,7 +56,7 @@ describe("Button Component", () => {
     );
     const button = screen.getByLabelText(/loading/i);
 
-    userEvent.click(button);
+    await userEvent.click(button);
     expect(onClick).toHaveBeenCalledTimes(0);
   });
 
@@ -71,5 +71,13 @@ describe("Button Component", () => {
   it("should prepend className to the button", () => {
     render(<Button className="test-class">test-button</Button>);
     expect(screen.getByText("test-button")).toHaveClass("test-class");
+  });
+
+  it("should keep button width when loading and no loadingText", () => {
+    render(<Button loading>test-button</Button>);
+    const label = screen.getByText("test-button");
+
+    // label is still rendered in the DOM with opacity set to 0 to keep initial button width
+    expect(label).toHaveClass("invisible");
   });
 });

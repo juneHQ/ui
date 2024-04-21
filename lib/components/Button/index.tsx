@@ -4,13 +4,13 @@ import { LoadingSpinner } from "./LoadingSpinner.tsx";
 
 type ButtonColor = "gray" | "purple" | "red" | "black" | "yellow";
 
-type ButtonProps = {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "solid" | "outline" | "ghost";
   color?: ButtonColor;
   children: React.ReactNode;
   loading?: boolean;
   loadingText?: string;
-} & React.ComponentProps<"button">;
+}
 
 const baseStyle =
   "inline-flex appearance-none items-center justify-center select-none relative whitespace-nowrap" +
