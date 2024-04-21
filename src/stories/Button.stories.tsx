@@ -25,17 +25,11 @@ export const Disabled: Story = {
   },
 };
 
-export const Outline: Story = {
+export const YellowOutline: Story = {
   args: {
     children: "outline",
     variant: "outline",
-  },
-};
-
-export const Purple: Story = {
-  args: {
-    children: "Click me!",
-    color: "purple",
+    color: "yellow",
   },
 };
 
@@ -50,8 +44,15 @@ export const PurpleGhost: Story = {
 export const Loading: Story = {
   args: {
     children: "this is button",
-    color: "purple",
     loading: true,
+  },
+};
+
+export const LoadingWithText: Story = {
+  args: {
+    children: "this is button",
+    loading: true,
+    loadingText: "Submitting",
   },
 };
 

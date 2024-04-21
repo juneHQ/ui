@@ -8,11 +8,12 @@ type ButtonProps = {
   color?: ButtonColor;
   children: React.ReactNode;
   loading?: boolean;
+  loadingText?: string;
 } & Pick<React.ComponentProps<"button">, "onClick" | "className" | "disabled">;
 
 const baseStyle =
   "inline-flex appearance-none items-center justify-center select-none relative whitespace-nowrap" +
-  "align-middle outline-none rounded-md font-medium transition-colors min-w-[2.5rem] text-sm px-8 py-1.5 h-8 gap-2";
+  "align-middle outline-none rounded-md font-medium transition-colors min-w-[2.5rem] text-sm px-3 py-1.5 h-8 gap-2";
 
 const variantStyles = {
   solid: "border shadow-subtle",
@@ -81,25 +82,27 @@ export const Button = React.forwardRef(function Button(
     children,
     disabled,
     loading = false,
+    loadingText,
     ...props
   }: ButtonProps,
   ref: React.ForwardedRef<HTMLButtonElement>,
 ) {
   const isDisabled = disabled || loading;
+
   return (
     <button
       {...props}
       disabled={isDisabled}
-      aria-label={loading ? "Loading, please wait" : undefined}
+      aria-label={loading && !loadingText ? "Loading, please wait" : undefined}
       className={cx(
         className,
         buttonStyles({ variant, color, disabled: isDisabled }),
       )}
       ref={ref}
     >
-      <LoadingWidthKeeper loading={loading}>
+      <LoaderWrapper loading={loading} loadingText={loadingText}>
         <TouchTarget>{children}</TouchTarget>
-      </LoadingWidthKeeper>
+      </LoaderWrapper>
     </button>
   );
 });
@@ -117,17 +120,34 @@ export function TouchTarget({ children }: { children: React.ReactNode }) {
   );
 }
 
-function LoadingWidthKeeper({
+function LoaderWrapper({
   loading,
+  loadingText,
   children,
 }: {
   loading?: boolean;
+  loadingText?: string;
   children: React.ReactNode;
 }) {
   if (!loading) {
     return children;
   }
 
+  return (
+    <>
+      {loadingText ? (
+        <>
+          <LoadingSpinner />
+          {loadingText}
+        </>
+      ) : (
+        <LoadingWithInitialWidth>{children}</LoadingWithInitialWidth>
+      )}
+    </>
+  );
+}
+
+function LoadingWithInitialWidth({ children }: { children: React.ReactNode }) {
   return (
     <div className="inline-flex items-center relative">
       <LoadingSpinner className="absolute inset-0 m-auto" />
@@ -140,7 +160,7 @@ function LoadingSpinner({ className }: { className?: string }) {
   return (
     <svg
       className={cx(
-        "animate-spin h-4 w-4 border-2 border-white border-b-transparent rounded-full",
+        "animate-spin h-3.5 w-3.5 border-2 border-b-transparent rounded-full border-current",
         className,
       )}
       viewBox="0 0 24 24"

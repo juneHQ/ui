@@ -33,9 +33,18 @@ describe("Button Component", () => {
     expect(onClick).toHaveBeenCalledTimes(0);
   });
 
-  it("should render loading label when loading", () => {
+  it("should render accessible loading label when loading without loadingText", () => {
     render(<Button loading>test-button</Button>);
     expect(screen.getByLabelText(/loading/i)).toBeInTheDocument();
+  });
+
+  it("should render loading text when loading with loadingText", () => {
+    render(
+      <Button loading loadingText="Submitting">
+        test-button
+      </Button>,
+    );
+    expect(screen.getByText("Submitting")).toBeInTheDocument();
   });
 
   it("should not be clickable when loading", () => {
