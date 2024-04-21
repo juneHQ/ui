@@ -1,9 +1,11 @@
 import React from "react";
 import { cx } from "../common/utils.ts";
 
+type ButtonColor = "gray" | "purple" | "red" | "black" | "yellow";
+
 type ButtonProps = {
   variant?: "solid" | "outline" | "ghost";
-  color?: "gray" | "purple";
+  color?: ButtonColor;
   children: React.ReactNode;
   loading?: boolean;
 } & Pick<React.ComponentProps<"button">, "onClick" | "className" | "disabled">;
@@ -14,7 +16,7 @@ const baseStyle =
 
 const variantStyles = {
   solid: "border shadow-subtle",
-  outline: "bg-transparent border border-current hover:bg-opacity-50",
+  outline: "bg-transparent border hover:bg-opacity-50",
   ghost: "bg-transparent border-none",
 };
 
@@ -25,16 +27,35 @@ const colorsStyles = {
   gray: {
     solid:
       "text-gray-800 bg-whiteAlpha-900 border-gray-200 hover:bg-gray-100 active:bg-gray-300",
-    ghost: "text-gray-800 hover:bg-gray-100 active:bg-gray-200 bg-transparent",
+    ghost: "text-gray-800 hover:bg-gray-100 active:bg-gray-200",
     outline:
       "border-gray-200 text-gray-800 hover:bg-gray-100 active:bg-gray-200",
   },
   purple: {
     solid:
-      "bg-purple-500 text-white hover:bg-purple-600 border-none active:bg-purple-700",
+      "bg-purple-500 text-white border-current hover:bg-purple-600 active:bg-purple-700",
     ghost:
-      "text-purple-500 border-none bg-transparent hover:bg-purple-50 active:bg-purple-100",
+      "text-purple-500 border-none hover:bg-purple-50 active:bg-purple-100",
     outline: "text-purple-500 hover:bg-purple-50 active:bg-purple-100",
+  },
+  red: {
+    solid:
+      "text-white bg-red-500 border-current hover:bg-red-600 active:bg-red-700",
+    ghost: "text-red-500 hover:bg-red-50 active:bg-red-100",
+    outline: "text-red-500 border-current hover:bg-red-50 active:bg-red-100",
+  },
+  black: {
+    solid:
+      "text-whiteAlpha-900 bg-gray-800 border-current hover:bg-gray-900 active:bg-gray-900",
+    ghost: "text-gray-800 hover:bg-gray-50 active:bg-gray-100",
+    outline: "text-gray-800 border-current hover:bg-gray-50 active:bg-gray-100",
+  },
+  yellow: {
+    solid:
+      "text-gray-800 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600",
+    ghost: "text-yellow-500 hover:bg-yellow-50 active:bg-yellow-100",
+    outline:
+      "text-yellow-500 border-current hover:bg-yellow-50 hover:bg-opacity-50 active:bg-yellow-100",
   },
 };
 
@@ -44,7 +65,7 @@ function buttonStyles({
   disabled,
 }: {
   variant: "solid" | "outline" | "ghost";
-  color: "gray" | "purple";
+  color: ButtonColor;
   disabled?: boolean;
 }): string {
   const variantStyle = variantStyles[variant];
