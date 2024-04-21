@@ -5,6 +5,7 @@ type ButtonProps = {
   variant?: "solid" | "outline" | "ghost";
   color?: "gray" | "purple";
   children: React.ReactNode;
+  loading?: boolean;
 } & Pick<React.ComponentProps<"button">, "onClick" | "className" | "disabled">;
 
 const baseStyle =
@@ -12,27 +13,28 @@ const baseStyle =
   "align-middle outline-none rounded-md font-medium transition-colors min-w-[2.5rem] text-sm px-8 py-1.5 h-8";
 
 const variantStyles = {
-  solid:
-    "bg-whiteAlpha-900 border border-gray-200 hover:bg-gray-100 shadow-subtle",
+  solid: "border shadow-subtle",
   outline:
     "bg-transparent border border-gray-200 hover:bg-gray-100 hover:bg-opacity-10",
   ghost: "bg-transparent border-none",
 };
 
 const disabledStyle =
-  "opacity-40 cursor-not-allowed shadow-none hover:bg-whiteAlpha-900";
-// shadow, hover bg might be conflicting :D
+  "disabled:opacity-40 disabled:shadow-none disabled:pointer-events-none";
 
 const colorsStyles = {
   gray: {
-    solid: "text-gray-800",
-    ghost: "text-gray-500 hover:bg-gray-50 border-none bg-transparent",
-    outline: "border-current",
+    solid:
+      "text-gray-800 bg-whiteAlpha-900 border-gray-200 hover:bg-gray-100 active:bg-gray-300",
+    ghost: "text-gray-500 hover:bg-gray-50 border-none bg-transparent", // todo active
+    outline: "border-current text-gray-800 active:bg-gray-200", // todo: in app text color is "inherit"
   },
   purple: {
-    solid: "bg-purple-500 text-white hover:bg-purple-600 border-none",
-    ghost: "text-purple-500 hover:bg-purple-50 border-none bg-transparent",
-    outline: "text-gray-800 border-current",
+    solid:
+      "bg-purple-500 text-white hover:bg-purple-600 border-none active:bg-purple-700",
+    ghost:
+      "text-purple-500 border-none bg-transparent hover:bg-purple-50 active:bg-purple-100",
+    outline: "text-gray-800 border-current", // todo active
   },
 };
 
@@ -57,17 +59,26 @@ export const Button = React.forwardRef(function Button(
     className,
     children,
     disabled,
+    loading = false,
     ...props
   }: ButtonProps,
   ref: React.ForwardedRef<HTMLButtonElement>,
 ) {
+  const isDisabled = disabled || loading;
   return (
     <button
       {...props}
-      className={cx(className, buttonStyles({ variant, color, disabled }))}
+      disabled={isDisabled}
+      aria-label={loading ? "Loading, please wait" : undefined}
+      className={cx(
+        className,
+        buttonStyles({ variant, color, disabled: isDisabled }),
+      )}
       ref={ref}
     >
-      <TouchTarget>{children}</TouchTarget>
+      <LoadingWidthKeeper loading={loading}>
+        <TouchTarget>{children}</TouchTarget>
+      </LoadingWidthKeeper>
     </button>
   );
 });
@@ -82,5 +93,36 @@ export function TouchTarget({ children }: { children: React.ReactNode }) {
         aria-hidden="true"
       />
     </>
+  );
+}
+
+function LoadingWidthKeeper({
+  loading,
+  children,
+}: {
+  loading?: boolean;
+  children: React.ReactNode;
+}) {
+  if (!loading) {
+    return children;
+  }
+
+  return (
+    <div className="inline-flex items-center relative">
+      <LoadingSpinner className="absolute inset-0 m-auto" />
+      <div className="invisible">{children}</div>
+    </div>
+  );
+}
+
+function LoadingSpinner({ className }: { className?: string }) {
+  return (
+    <svg
+      className={cx(
+        "animate-spin h-4 w-4 border-2 border-white border-b-transparent rounded-full",
+        className,
+      )}
+      viewBox="0 0 24 24"
+    ></svg>
   );
 }

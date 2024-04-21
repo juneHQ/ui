@@ -12,10 +12,6 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
-  args: {},
-};
-
-export const WithProps: Story = {
   args: {
     children: "Click me!",
   },
@@ -30,7 +26,7 @@ export const Disabled: Story = {
 
 export const Outline: Story = {
   args: {
-    children: "Click me!",
+    children: "outline",
     variant: "outline",
   },
 };
@@ -50,10 +46,10 @@ export const PurpleGhost: Story = {
   },
 };
 
-export const ConflictingClassName: Story = {
+export const Loading: Story = {
   args: {
-    children: "Click me!",
+    children: "this is button",
     color: "purple",
-    className: "w-96",
+    loading: true,
   },
 };
