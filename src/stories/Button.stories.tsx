@@ -14,13 +14,13 @@ type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
   args: {
-    children: "Click me!",
+    children: "default",
   },
 };
 
 export const Disabled: Story = {
   args: {
-    children: "Click me!",
+    children: "disabled",
     disabled: true,
   },
 };
@@ -35,7 +35,7 @@ export const YellowOutline: Story = {
 
 export const PurpleGhost: Story = {
   args: {
-    children: "Click me!",
+    children: "purple ghost",
     color: "purple",
     variant: "ghost",
   },
@@ -43,16 +43,16 @@ export const PurpleGhost: Story = {
 
 export const Loading: Story = {
   args: {
-    children: "this is button",
+    children: "long button text",
     loading: true,
   },
 };
 
 export const LoadingWithText: Story = {
   args: {
-    children: "this is button",
+    children: "loading",
     loading: true,
-    loadingText: "Submitting",
+    loadingText: "Submitting...",
   },
 };
 
