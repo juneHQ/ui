@@ -80,4 +80,15 @@ describe("Button Component", () => {
     // label is still rendered in the DOM with opacity set to 0 to keep initial button width
     expect(label).toHaveClass("invisible");
   });
+
+  it("should render as link when link props", () => {
+    render(
+      <Button href="https://june.so" target="_blank" rel="noreferrer">
+        test-button
+      </Button>,
+    );
+
+    const link = screen.getByText("test-button");
+    expect(link).toHaveAttribute("href", "https://june.so");
+  });
 });

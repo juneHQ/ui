@@ -29,4 +29,4 @@ export {
   CommandInput,
 } from "./components/Command";
 export { Popover } from "./components/Popover";
-export { Button } from "./components/Button";
+export { Button, type ButtonProps } from "./components/Button";

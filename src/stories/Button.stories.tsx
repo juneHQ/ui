@@ -14,20 +14,20 @@ type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
   args: {
-    children: "default",
+    children: "Default",
   },
 };
 
 export const Disabled: Story = {
   args: {
-    children: "disabled",
+    children: "Disabled",
     disabled: true,
   },
 };
 
 export const YellowOutline: Story = {
   args: {
-    children: "outline",
+    children: "Outline",
     variant: "outline",
     color: "yellow",
   },
@@ -35,7 +35,7 @@ export const YellowOutline: Story = {
 
 export const PurpleGhost: Story = {
   args: {
-    children: "purple ghost",
+    children: "Purple ghost",
     color: "purple",
     variant: "ghost",
   },
@@ -43,14 +43,14 @@ export const PurpleGhost: Story = {
 
 export const Loading: Story = {
   args: {
-    children: "long button text",
+    children: "Long button text",
     loading: true,
   },
 };
 
 export const LoadingWithText: Story = {
   args: {
-    children: "loading",
+    children: "Loading",
     loading: true,
     loadingText: "Submitting...",
   },
@@ -64,5 +64,14 @@ export const WithIcon: Story = {
         Search
       </>
     ),
+  },
+};
+
+export const Link: Story = {
+  args: {
+    children: "Open June",
+    href: "https://june.so",
+    target: "_blank",
+    rel: "noreferrer",
   },
 };
