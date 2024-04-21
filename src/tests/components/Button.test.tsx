@@ -59,4 +59,17 @@ describe("Button Component", () => {
     userEvent.click(button);
     expect(onClick).toHaveBeenCalledTimes(0);
   });
+
+  it("should append html button props to component", () => {
+    render(<Button lang="test-lang">test-button</Button>);
+    expect(screen.getByText("test-button")).toHaveAttribute(
+      "lang",
+      "test-lang",
+    );
+  });
+
+  it("should prepend className to the button", () => {
+    render(<Button className="test-class">test-button</Button>);
+    expect(screen.getByText("test-button")).toHaveClass("test-class");
+  });
 });

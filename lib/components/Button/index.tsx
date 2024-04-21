@@ -1,5 +1,6 @@
 import React from "react";
 import { cx } from "../common/utils.ts";
+import { LoadingSpinner } from "./LoadingSpinner.tsx";
 
 type ButtonColor = "gray" | "purple" | "red" | "black" | "yellow";
 
@@ -9,7 +10,7 @@ type ButtonProps = {
   children: React.ReactNode;
   loading?: boolean;
   loadingText?: string;
-} & Pick<React.ComponentProps<"button">, "onClick" | "className" | "disabled">;
+} & React.ComponentProps<"button">;
 
 const baseStyle =
   "inline-flex appearance-none items-center justify-center select-none relative whitespace-nowrap" +
@@ -74,38 +75,42 @@ function buttonStyles({
   return cx(baseStyle, colorStyle, variantStyle, disabled && disabledStyle);
 }
 
-export const Button = React.forwardRef(function Button(
-  {
-    variant = "solid",
-    color = "gray",
-    className,
-    children,
-    disabled,
-    loading = false,
-    loadingText,
-    ...props
-  }: ButtonProps,
-  ref: React.ForwardedRef<HTMLButtonElement>,
-) {
-  const isDisabled = disabled || loading;
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      variant = "solid",
+      color = "gray",
+      className,
+      children,
+      disabled,
+      loading = false,
+      loadingText,
+      ...props
+    },
+    ref,
+  ) => {
+    const isDisabled = disabled || loading;
 
-  return (
-    <button
-      {...props}
-      disabled={isDisabled}
-      aria-label={loading && !loadingText ? "Loading, please wait" : undefined}
-      className={cx(
-        className,
-        buttonStyles({ variant, color, disabled: isDisabled }),
-      )}
-      ref={ref}
-    >
-      <LoaderWrapper loading={loading} loadingText={loadingText}>
-        <TouchTarget>{children}</TouchTarget>
-      </LoaderWrapper>
-    </button>
-  );
-});
+    return (
+      <button
+        {...props}
+        disabled={isDisabled}
+        aria-label={
+          loading && !loadingText ? "Loading, please wait" : undefined
+        }
+        className={cx(
+          className,
+          buttonStyles({ variant, color, disabled: isDisabled }),
+        )}
+        ref={ref}
+      >
+        <LoaderWrapper loading={loading} loadingText={loadingText}>
+          <TouchTarget>{children}</TouchTarget>
+        </LoaderWrapper>
+      </button>
+    );
+  },
+);
 
 /* Expand the hit area to at least 44×44px on touch devices */
 export function TouchTarget({ children }: { children: React.ReactNode }) {
@@ -147,23 +152,12 @@ function LoaderWrapper({
   );
 }
 
+/* Keep the button width while loading */
 function LoadingWithInitialWidth({ children }: { children: React.ReactNode }) {
   return (
     <div className="inline-flex items-center relative">
       <LoadingSpinner className="absolute inset-0 m-auto" />
       <div className="invisible">{children}</div>
     </div>
-  );
-}
-
-function LoadingSpinner({ className }: { className?: string }) {
-  return (
-    <svg
-      className={cx(
-        "animate-spin h-3.5 w-3.5 border-2 border-b-transparent rounded-full border-current",
-        className,
-      )}
-      viewBox="0 0 24 24"
-    ></svg>
   );
 }
