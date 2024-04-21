@@ -1,8 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./lib/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./lib/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       zIndex: {
@@ -58,9 +56,14 @@ export default {
           800: "#343A40",
           900: "#0D131B",
         },
+        whiteAlpha: {
+          900: "rgba(255, 255, 255, 0.9)",
+        },
+      },
+      boxShadow: {
+        subtle: "0px 1px 0px rgba(13, 19, 27, 0.05)",
       },
     },
   },
   plugins: [],
-}
-
+};
