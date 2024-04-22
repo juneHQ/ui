@@ -3,16 +3,18 @@ import { render, screen, userEvent } from "../test-utils.ts";
 import { Button } from "../../../lib/main";
 
 describe("Button Component", () => {
-  it("should render with children", () => {
+  it("should render with children", async () => {
     render(<Button>test-button</Button>);
-    expect(screen.getByText("test-button")).toBeInTheDocument();
+    const button = await screen.findByText("test-button");
+
+    expect(button).toBeInTheDocument();
   });
 
   it("should be clickable", async () => {
     const user = userEvent.setup();
     const onClick = vi.fn();
     render(<Button onClick={onClick}>test-button</Button>);
-    const button = screen.getByText("test-button");
+    const button = await screen.findByText("test-button");
 
     await user.click(button);
 
@@ -27,24 +29,29 @@ describe("Button Component", () => {
         test-button
       </Button>,
     );
-    const button = screen.getByText("test-button");
+    const button = await screen.findByText("test-button");
 
     await user.click(button);
-    expect(onClick).toHaveBeenCalledTimes(0);
+
+    expect(onClick).not.toHaveBeenCalled();
   });
 
-  it("should render accessible loading label when loading without loadingText", () => {
+  it("should render accessible loading label when loading without loadingText", async () => {
     render(<Button loading>test-button</Button>);
-    expect(screen.getByLabelText(/loading/i)).toBeInTheDocument();
+    const button = await screen.findByLabelText(/loading/i);
+
+    expect(button).toBeInTheDocument();
   });
 
-  it("should render loading text when loading with loadingText", () => {
+  it("should render loading text when loading with loadingText", async () => {
     render(
       <Button loading loadingText="Submitting">
         test-button
       </Button>,
     );
-    expect(screen.getByText("Submitting")).toBeInTheDocument();
+    const button = await screen.findByText("Submitting");
+
+    expect(button).toBeInTheDocument();
   });
 
   it("should not be clickable when loading", async () => {
@@ -54,10 +61,11 @@ describe("Button Component", () => {
         test-button
       </Button>,
     );
-    const button = screen.getByLabelText(/loading/i);
+    const button = await screen.findByLabelText(/loading/i);
 
     await userEvent.click(button);
-    expect(onClick).toHaveBeenCalledTimes(0);
+
+    expect(onClick).not.toHaveBeenCalled();
   });
 
   it("should keep button width when loading and no loadingText", () => {
@@ -68,27 +76,28 @@ describe("Button Component", () => {
     expect(label).toHaveClass("invisible");
   });
 
-  it("should append html button props to component", () => {
+  it("should append html button props to component", async () => {
     render(<Button lang="test-lang">test-button</Button>);
-    expect(screen.getByText("test-button")).toHaveAttribute(
-      "lang",
-      "test-lang",
-    );
+    const button = await screen.findByText("test-button");
+
+    expect(button).toHaveAttribute("lang", "test-lang");
   });
 
-  it("should prepend className to the button", () => {
+  it("should prepend className to the button", async () => {
     render(<Button className="test-class">test-button</Button>);
-    expect(screen.getByText("test-button")).toHaveClass("test-class");
+    const button = await screen.findByText("test-button");
+
+    expect(button).toHaveClass("test-class");
   });
 
-  it("should render as link when link props", () => {
+  it("should render as link when link props", async () => {
     render(
       <Button href="https://june.so" target="_blank" rel="noreferrer">
         test-button
       </Button>,
     );
+    const link = await screen.findByText("test-button");
 
-    const link = screen.getByText("test-button");
     expect(link).toHaveAttribute("href", "https://june.so");
   });
 });
