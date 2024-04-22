@@ -27,59 +27,59 @@ export type ButtonProps = {
     })
 );
 
-const baseStyle =
-  "inline-flex appearance-none items-center justify-center select-none relative whitespace-nowrap " +
-  "align-middle outline-none rounded-md font-medium transition-colors transition-shadow " +
-  "min-w-[2.5rem] gap-2 " +
-  "disabled:opacity-40 disabled:shadow-none disabled:pointer-events-none " +
-  "focus-visible:shadow-outline";
-
-const sizeStyles = {
-  xs: "text-xs px-2 h-6",
-  sm: "text-sm px-3 h-8",
-  md: "text-sm px-3 py-1.5 h-8",
-  lg: "text-lg px-6 h-12",
-};
-
-const variantStyles = {
-  solid: "border shadow-subtle",
-  outline: "bg-transparent border hover:bg-opacity-50",
-  ghost: "bg-transparent border-none",
-};
-
-const colorsStyles = {
-  gray: {
-    solid:
-      "text-gray-800 bg-gray-50 border-gray-200 hover:bg-gray-100 active:bg-gray-300",
-    ghost: "text-gray-800 hover:bg-gray-100 active:bg-gray-200",
-    outline:
-      "border-gray-200 text-gray-800 hover:bg-gray-100 active:bg-gray-200",
+const buttonStyleConfig = {
+  base:
+    "inline-flex appearance-none items-center justify-center select-none relative whitespace-nowrap " +
+    "align-middle outline-none rounded-md font-medium transition-colors transition-shadow " +
+    "min-w-[2.5rem] gap-2 " +
+    "disabled:opacity-40 disabled:shadow-none disabled:pointer-events-none " +
+    "focus-visible:shadow-outline",
+  size: {
+    xs: "text-xs px-2 h-6",
+    sm: "text-sm px-3 h-8",
+    md: "text-sm px-3 py-1.5 h-8",
+    lg: "text-lg px-6 h-12",
   },
-  purple: {
-    solid:
-      "bg-purple-500 text-white border-current hover:bg-purple-600 active:bg-purple-700",
-    ghost:
-      "text-purple-500 border-none hover:bg-purple-50 active:bg-purple-100",
-    outline: "text-purple-500 hover:bg-purple-50 active:bg-purple-100",
+  variant: {
+    solid: "border shadow-subtle",
+    outline: "bg-transparent border hover:bg-opacity-50",
+    ghost: "bg-transparent border-none",
   },
-  red: {
-    solid:
-      "text-white bg-red-500 border-current hover:bg-red-600 active:bg-red-700",
-    ghost: "text-red-500 hover:bg-red-50 active:bg-red-100",
-    outline: "text-red-500 border-current hover:bg-red-50 active:bg-red-100",
-  },
-  black: {
-    solid:
-      "text-gray-50 bg-gray-800 border-current hover:bg-gray-900 active:bg-gray-900",
-    ghost: "text-gray-800 hover:bg-gray-50 active:bg-gray-100",
-    outline: "text-gray-800 border-current hover:bg-gray-50 active:bg-gray-100",
-  },
-  yellow: {
-    solid:
-      "text-gray-800 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600",
-    ghost: "text-yellow-500 hover:bg-yellow-50 active:bg-yellow-100",
-    outline:
-      "text-yellow-500 border-current hover:bg-yellow-50 hover:bg-opacity-50 active:bg-yellow-100",
+  color: {
+    gray: {
+      solid:
+        "text-gray-800 bg-whiteAlpha-900 border-gray-200 hover:bg-gray-100 active:bg-gray-300",
+      ghost: "text-gray-800 hover:bg-gray-100 active:bg-gray-200",
+      outline:
+        "border-gray-200 text-gray-800 hover:bg-gray-100 active:bg-gray-200",
+    },
+    purple: {
+      solid:
+        "bg-purple-500 text-white border-current hover:bg-purple-600 active:bg-purple-700",
+      ghost:
+        "text-purple-500 border-none hover:bg-purple-50 active:bg-purple-100",
+      outline: "text-purple-500 hover:bg-purple-50 active:bg-purple-100",
+    },
+    red: {
+      solid:
+        "text-white bg-red-500 border-current hover:bg-red-600 active:bg-red-700",
+      ghost: "text-red-500 hover:bg-red-50 active:bg-red-100",
+      outline: "text-red-500 border-current hover:bg-red-50 active:bg-red-100",
+    },
+    black: {
+      solid:
+        "text-whiteAlpha-900 bg-gray-800 border-current hover:bg-gray-900 active:bg-gray-900",
+      ghost: "text-gray-800 hover:bg-gray-50 active:bg-gray-100",
+      outline:
+        "text-gray-800 border-current hover:bg-gray-50 active:bg-gray-100",
+    },
+    yellow: {
+      solid:
+        "text-gray-800 bg-yellow-400 hover:bg-yellow-500 active:bg-yellow-600",
+      ghost: "text-yellow-500 hover:bg-yellow-50 active:bg-yellow-100",
+      outline:
+        "text-yellow-500 border-current hover:bg-yellow-50 hover:bg-opacity-50 active:bg-yellow-100",
+    },
   },
 };
 
@@ -92,10 +92,10 @@ function buttonStyles({
   color: ButtonColor;
   size: ButtonSize;
 }): string {
-  const variantStyle = variantStyles[variant];
-  const colorStyle = colorsStyles[color][variant];
-  const sizeStyle = sizeStyles[size];
-  return cx(baseStyle, colorStyle, variantStyle, sizeStyle);
+  const variantStyle = buttonStyleConfig.variant[variant];
+  const colorStyle = buttonStyleConfig.color[color][variant];
+  const sizeStyle = buttonStyleConfig.size[size];
+  return cx(buttonStyleConfig.base, colorStyle, variantStyle, sizeStyle);
 }
 
 export const Button = React.forwardRef<
