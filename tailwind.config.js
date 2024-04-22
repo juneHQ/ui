@@ -68,12 +68,10 @@ export default {
           800: "#744210",
           900: "#5F370E",
         },
-        whiteAlpha: {
-          900: "rgba(255, 255, 255, 0.9)",
-        },
       },
       boxShadow: {
         subtle: "0px 1px 0px rgba(13, 19, 27, 0.05)",
+        outline: "0 0 0 3px rgba(66, 153, 225, 0.6)",
       },
     },
   },

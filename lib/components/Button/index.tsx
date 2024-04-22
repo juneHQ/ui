@@ -26,8 +26,11 @@ export type ButtonProps = {
 );
 
 const baseStyle =
-  "inline-flex appearance-none items-center justify-center select-none relative whitespace-nowrap" +
-  "align-middle outline-none rounded-md font-medium transition-colors min-w-[2.5rem] text-sm px-3 py-1.5 h-8 gap-2";
+  "inline-flex appearance-none items-center justify-center select-none relative whitespace-nowrap " +
+  "align-middle outline-none rounded-md font-medium transition-colors transition-shadow " +
+  "min-w-[2.5rem] text-sm px-3 py-1.5 h-8 gap-2 " +
+  "disabled:opacity-40 disabled:shadow-none disabled:pointer-events-none " +
+  "focus-visible:shadow-outline";
 
 const variantStyles = {
   solid: "border shadow-subtle",
@@ -35,13 +38,10 @@ const variantStyles = {
   ghost: "bg-transparent border-none",
 };
 
-const disabledStyle =
-  "disabled:opacity-40 disabled:shadow-none disabled:pointer-events-none";
-
 const colorsStyles = {
   gray: {
     solid:
-      "text-gray-800 bg-whiteAlpha-900 border-gray-200 hover:bg-gray-100 active:bg-gray-300",
+      "text-gray-800 bg-gray-50 border-gray-200 hover:bg-gray-100 active:bg-gray-300",
     ghost: "text-gray-800 hover:bg-gray-100 active:bg-gray-200",
     outline:
       "border-gray-200 text-gray-800 hover:bg-gray-100 active:bg-gray-200",
@@ -61,7 +61,7 @@ const colorsStyles = {
   },
   black: {
     solid:
-      "text-whiteAlpha-900 bg-gray-800 border-current hover:bg-gray-900 active:bg-gray-900",
+      "text-gray-50 bg-gray-800 border-current hover:bg-gray-900 active:bg-gray-900",
     ghost: "text-gray-800 hover:bg-gray-50 active:bg-gray-100",
     outline: "text-gray-800 border-current hover:bg-gray-50 active:bg-gray-100",
   },
@@ -77,15 +77,13 @@ const colorsStyles = {
 function buttonStyles({
   variant = "solid",
   color = "gray",
-  disabled,
 }: {
   variant: ButtonVariant;
   color: ButtonColor;
-  disabled?: boolean;
 }): string {
   const variantStyle = variantStyles[variant];
   const colorStyle = colorsStyles[color][variant];
-  return cx(baseStyle, colorStyle, variantStyle, disabled && disabledStyle);
+  return cx(baseStyle, colorStyle, variantStyle);
 }
 
 export const Button = React.forwardRef<
@@ -120,10 +118,7 @@ export const Button = React.forwardRef<
     <button
       disabled={isDisabled}
       aria-label={loading && !loadingText ? "Loading, please wait" : undefined}
-      className={cx(
-        className,
-        buttonStyles({ variant, color, disabled: isDisabled }),
-      )}
+      className={cx(className, buttonStyles({ variant, color }))}
       {...(buttonProps as React.ButtonHTMLAttributes<HTMLButtonElement>)}
       ref={ref as React.RefObject<HTMLButtonElement>}
     >
