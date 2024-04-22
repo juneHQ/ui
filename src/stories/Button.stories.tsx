@@ -56,7 +56,14 @@ export const LoadingWithText: Story = {
   },
 };
 
-export const WithIcon: Story = {
+export const Large: Story = {
+  args: {
+    children: "Large",
+    size: "lg",
+  },
+};
+
+export const IconAndText: Story = {
   args: {
     children: (
       <>
@@ -67,9 +74,20 @@ export const WithIcon: Story = {
   },
 };
 
+export const IconOnly: Story = {
+  args: {
+    children: <MagnifyingGlassIcon />,
+    color: "purple",
+    size: "sm",
+    variant: "ghost",
+  },
+};
+
 export const Link: Story = {
   args: {
     children: "Open June",
+    variant: "ghost",
+    color: "purple",
     href: "https://june.so",
     target: "_blank",
     rel: "noreferrer",

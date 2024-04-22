@@ -4,11 +4,13 @@ import { LoadingSpinner } from "./LoadingSpinner.tsx";
 
 type ButtonColor = "gray" | "purple" | "red" | "black" | "yellow";
 type ButtonVariant = "solid" | "outline" | "ghost";
+type ButtonSize = "xs" | "sm" | "md" | "lg";
 
 export type ButtonProps = {
   children: React.ReactNode;
   variant?: ButtonVariant;
   color?: ButtonColor;
+  size?: ButtonSize;
 } & (
   | (React.AnchorHTMLAttributes<HTMLAnchorElement> & {
       onClick?: never;
@@ -28,9 +30,16 @@ export type ButtonProps = {
 const baseStyle =
   "inline-flex appearance-none items-center justify-center select-none relative whitespace-nowrap " +
   "align-middle outline-none rounded-md font-medium transition-colors transition-shadow " +
-  "min-w-[2.5rem] text-sm px-3 py-1.5 h-8 gap-2 " +
+  "min-w-[2.5rem] gap-2 " +
   "disabled:opacity-40 disabled:shadow-none disabled:pointer-events-none " +
   "focus-visible:shadow-outline";
+
+const sizeStyles = {
+  xs: "text-xs px-2 h-6",
+  sm: "text-sm px-3 h-8",
+  md: "text-sm px-3 py-1.5 h-8",
+  lg: "text-lg px-6 h-12",
+};
 
 const variantStyles = {
   solid: "border shadow-subtle",
@@ -75,15 +84,18 @@ const colorsStyles = {
 };
 
 function buttonStyles({
-  variant = "solid",
-  color = "gray",
+  variant,
+  color,
+  size,
 }: {
   variant: ButtonVariant;
   color: ButtonColor;
+  size: ButtonSize;
 }): string {
   const variantStyle = variantStyles[variant];
   const colorStyle = colorsStyles[color][variant];
-  return cx(baseStyle, colorStyle, variantStyle);
+  const sizeStyle = sizeStyles[size];
+  return cx(baseStyle, colorStyle, variantStyle, sizeStyle);
 }
 
 export const Button = React.forwardRef<
@@ -93,15 +105,18 @@ export const Button = React.forwardRef<
   const {
     variant = "solid",
     color = "gray",
+    size = "md",
     className,
     children,
     ...rest
   } = props;
 
+  const buttonStyle = buttonStyles({ variant, color, size });
+
   if (rest.href) {
     return (
       <a
-        className={cx(className, buttonStyles({ variant, color }))}
+        className={cx(className, buttonStyle)}
         {...(rest as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
         ref={ref as React.RefObject<HTMLAnchorElement>}
       >
@@ -118,7 +133,7 @@ export const Button = React.forwardRef<
     <button
       disabled={isDisabled}
       aria-label={loading && !loadingText ? "Loading, please wait" : undefined}
-      className={cx(className, buttonStyles({ variant, color }))}
+      className={cx(className, buttonStyle)}
       {...(buttonProps as React.ButtonHTMLAttributes<HTMLButtonElement>)}
       ref={ref as React.RefObject<HTMLButtonElement>}
     >
