@@ -30,7 +30,5 @@ export {
 } from "./components/Command";
 export { Popover } from "./components/Popover";
 export { Button, type ButtonProps } from "./components/Button";
-export { AreaChart } from "./components/AreaChart";
-export type { AreaChartProps } from "./components/AreaChart";
-export { Area } from "./components/AreaChart/Area";
-export type { AreaProps } from "./components/AreaChart/Area";
+export { AreaChart, type AreaChartProps } from "./components/AreaChart";
+export { Area, type AreaProps } from "./components/Area";

@@ -8,6 +8,7 @@ import {
   XAxis,
   YAxis,
 } from "../../lib/main.ts";
+import { defaultAreaProps } from "../../lib/components/Area/constants.ts";
 
 type Story = StoryObj<typeof AreaChart>;
 
@@ -43,7 +44,7 @@ export const Default: Story = {
         <Grid {...defaultGridProps} />
         <YAxis {...defaultYAxisProps} dataKey="y" />
         <XAxis {...defaultXAxisProps} dataKey="x" />
-        <Area dataKey="y" />
+        <Area {...defaultAreaProps} dataKey="y" />
       </AreaChart>
     </div>
   ),
