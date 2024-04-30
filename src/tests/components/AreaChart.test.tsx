@@ -1,7 +1,7 @@
 import { render, screen } from "../test-utils";
 import { Area, AreaChart } from "../../../lib/main";
 
-describe("AreaChart", () => {
+describe("Component AreaChart", () => {
   const mockData = [
     { month: "Jan", Active: 1000 },
     { month: "Feb", Active: 1200 },
