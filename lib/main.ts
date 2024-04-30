@@ -30,3 +30,6 @@ export {
 } from "./components/Command";
 export { Popover } from "./components/Popover";
 export { Button, type ButtonProps } from "./components/Button";
+export { LineChart, type LineChartProps } from "./components/LineChart";
+export { Line } from "./components/Line";
+export { defaultLineProps } from "./components/Line/constants";
