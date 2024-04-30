@@ -38,3 +38,4 @@ export {
   type ReferenceLineProps,
 } from "./components/ReferenceLine";
 export { defaultReferenceLineProps } from "./components/ReferenceLine/constants.ts";
+export { Legend, type LegendProps } from "./components/Legend";

@@ -11,6 +11,7 @@ import {
   ReferenceLine,
   defaultAreaProps,
   defaultReferenceLineProps,
+  Legend,
 } from "../../lib/main.ts";
 
 type Story = StoryObj<typeof AreaChart>;
@@ -49,6 +50,14 @@ export const Default: Story = {
         <XAxis {...defaultXAxisProps} dataKey="x" />
         <ReferenceLine {...defaultReferenceLineProps} x="Wed" />
         <Area {...defaultAreaProps} dataKey="y" />
+        <Legend
+          content={() => (
+            <div className="text-center">
+              <div>x – day</div>
+              <div>y – users</div>
+            </div>
+          )}
+        />
       </AreaChart>
     </div>
   ),
