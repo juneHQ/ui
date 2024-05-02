@@ -1,4 +1,4 @@
-import{M as m}from"./MagnifyingGlassIcon-lGZ8Xy5M.js";import{E as i}from"./index-BCxmeb86.js";import"./index-CsdIBAqE.js";const u={title:"Components/EmptyState",component:i,args:{}},e={args:{}},t={args:{IconComponent:m,noDataText:"There's data for this insight",noDataSubText:"Make sure you selected the correct events and timerange"}};var a,r,s;e.parameters={...e.parameters,docs:{...(a=e.parameters)==null?void 0:a.docs,source:{originalSource:`{
+import{M as m}from"./MagnifyingGlassIcon-CwXmDSey.js";import{E as i}from"./index-3EmNr02n.js";import"./index-CsdIBAqE.js";const u={title:"Components/EmptyState",component:i,args:{}},e={args:{}},t={args:{IconComponent:m,noDataText:"There's data for this insight",noDataSubText:"Make sure you selected the correct events and timerange"}};var a,r,s;e.parameters={...e.parameters,docs:{...(a=e.parameters)==null?void 0:a.docs,source:{originalSource:`{
   args: {}
 }`,...(s=(r=e.parameters)==null?void 0:r.docs)==null?void 0:s.source}}};var o,n,c;t.parameters={...t.parameters,docs:{...(o=t.parameters)==null?void 0:o.docs,source:{originalSource:`{
   args: {

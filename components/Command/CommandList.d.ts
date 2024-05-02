@@ -1,6 +1,6 @@
 import { HTMLAttributes } from '../../../node_modules/react';
 
-interface ICommandListProps extends Omit<HTMLAttributes<HTMLUListElement>, 'onCopy'> {
+interface ICommandListProps extends Omit<HTMLAttributes<HTMLUListElement>, "onCopy"> {
     className?: string;
     children?: React.ReactNode;
     "data-testid"?: string;

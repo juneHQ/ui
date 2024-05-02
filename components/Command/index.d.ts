@@ -1,6 +1,6 @@
 import { HTMLAttributes } from '../../../node_modules/react';
 
-interface ICommandProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
+interface ICommandProps extends Omit<HTMLAttributes<HTMLDivElement>, "onChange"> {
     className?: string;
     children?: React.ReactNode;
 }
