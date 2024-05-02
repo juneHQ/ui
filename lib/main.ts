@@ -30,3 +30,12 @@ export {
 } from "./components/Command";
 export { Popover } from "./components/Popover";
 export { Button, type ButtonProps } from "./components/Button";
+export { AreaChart, type AreaChartProps } from "./components/AreaChart";
+export { Area, type AreaProps } from "./components/Area";
+export { defaultAreaProps } from "./components/Area/constants.ts";
+export {
+  ReferenceLine,
+  type ReferenceLineProps,
+} from "./components/ReferenceLine";
+export { defaultReferenceLineProps } from "./components/ReferenceLine/constants.ts";
+export { Legend, type LegendProps } from "./components/Legend";
