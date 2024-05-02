@@ -6,6 +6,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   rules: {
+    "quotes": ["error", "double", { "avoidEscape": true, "allowTemplateLiterals": true }],
     "@typescript-eslint/no-explicit-any": "off",
     'react-refresh/only-export-components': [
       'warn',

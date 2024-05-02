@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "../../lib/components/Button";
 import { MagnifyingGlassIcon } from "../../lib/icons/MagnifyingGlassIcon.tsx";
+import { Button } from "../../lib/components/Button";
 
 const meta: Meta<typeof Button> = {
   title: "Components/Button",
@@ -15,6 +15,13 @@ type Story = StoryObj<typeof Button>;
 export const Default: Story = {
   args: {
     children: "Default button",
+  },
+};
+
+export const Primary: Story = {
+  args: {
+    children: "Primary",
+    color: "purple",
   },
 };
 
