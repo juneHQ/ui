@@ -1,9 +1,9 @@
 
-import { Tooltip as RechartsTooltip } from 'recharts';
-import { ChartTooltipValue } from './Value';
-import { ChartTooltipTitle } from './Title';
-import { ChartTooltipFooter } from './Footer';
-import { DefaultTooltip } from './DefaultTooltip';
+import { Tooltip as RechartsTooltip } from "recharts";
+import { ChartTooltipValue } from "./Value";
+import { ChartTooltipTitle } from "./Title";
+import { ChartTooltipFooter } from "./Footer";
+import { DefaultTooltip } from "./DefaultTooltip";
 
 export interface TooltipProps {
   label?: string;

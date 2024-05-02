@@ -1,4 +1,4 @@
-import { DefaultTooltip } from '../../lib/main';
+import { DefaultTooltip } from "../../lib/main";
 
 import type { Meta, StoryObj } from "@storybook/react";
 

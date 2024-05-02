@@ -8,8 +8,8 @@ import {
   defaultYAxisProps,
   XAxis,
   YAxis,
-} from '../../lib/main';
-import { Grid } from '../../lib/components/Grid';
+} from "../../lib/main";
+import { Grid } from "../../lib/components/Grid";
 
 import type { Meta, StoryObj } from "@storybook/react";
 const data = [

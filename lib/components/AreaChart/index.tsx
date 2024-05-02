@@ -1,9 +1,8 @@
-import React from "react";
 import {
   AreaChart as RechartsAreaChart,
   ResponsiveContainer as RechartsResponsiveContainer,
 } from "recharts";
-
+import React from "react";
 import { cx } from "../common/utils.ts";
 
 export type AreaChartProps = React.ComponentProps<typeof RechartsAreaChart>;

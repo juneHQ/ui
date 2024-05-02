@@ -1,4 +1,4 @@
-import { EventIcon } from '../../icons/EventIcon';
+import { EventIcon } from "../../icons/EventIcon";
 
 export interface EmptyStateProps {
   IconComponent?: React.ElementType;

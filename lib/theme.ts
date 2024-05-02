@@ -1,5 +1,5 @@
 
-import { BaseColors } from './constants';
+import { BaseColors } from "./constants";
 
 export const DEFAULT_COLOR: string = "gray";
 export const WHITE = "white";

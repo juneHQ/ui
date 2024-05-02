@@ -1,6 +1,6 @@
-import { XAxisProps } from 'recharts';
+import { XAxisProps } from "recharts";
 
-export { XAxis } from 'recharts';
+export { XAxis } from "recharts";
 
 export type { XAxisProps };
 

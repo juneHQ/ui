@@ -1,10 +1,10 @@
-import { vi } from 'vitest';
-import { useState } from 'react';
-import { fireEvent, render, screen } from '../test-utils';
-import { Command, CommandInput, CommandList, CommandOption } from '../../../lib/main';
+import { vi } from "vitest";
+import { useState } from "react";
+import { fireEvent, render, screen } from "../test-utils";
+import { Command, CommandInput, CommandList, CommandOption } from "../../../lib/main";
 
-describe('Command Component', () => {
-  it('should render without crashing', () => {
+describe("Command Component", () => {
+  it("should render without crashing", () => {
     render(
       <Command>
         <CommandInput value="" onChange={() => {}} />
@@ -20,7 +20,7 @@ describe('Command Component', () => {
     expect(screen.getByText("Option 3")).toBeInTheDocument();
   });
 
-  it('should call onChange with the new value when input changes', () => {
+  it("should call onChange with the new value when input changes", () => {
     const handleChange = vi.fn();
     render(
       <Command>
@@ -31,12 +31,12 @@ describe('Command Component', () => {
       </Command>
     );
     const inputElement = screen.getByDisplayValue("Test");
-    fireEvent.change(inputElement, { target: { value: 'New Value' } });
+    fireEvent.change(inputElement, { target: { value: "New Value" } });
     expect(handleChange).toHaveBeenCalledTimes(1);
     expect(handleChange).toHaveBeenCalledWith(expect.anything());
   });
 
-  it('should reflect the new value when input changes and value prop is controlled', () => {
+  it("should reflect the new value when input changes and value prop is controlled", () => {
     const Component = () => {
       const [value, setValue] = useState("Test");
       return (
@@ -50,11 +50,11 @@ describe('Command Component', () => {
     };
     render(<Component />);
     const inputElement = screen.getByDisplayValue("Test");
-    fireEvent.change(inputElement, { target: { value: 'Updated Test' } });
+    fireEvent.change(inputElement, { target: { value: "Updated Test" } });
     expect(screen.getByDisplayValue("Updated Test")).toBeInTheDocument();
   });
 
-  it('should not update the input value when onChange is not provided', () => {
+  it("should not update the input value when onChange is not provided", () => {
     render(
       <Command>
         <CommandInput onChange={() => {}} value="Static Value" />
@@ -64,11 +64,11 @@ describe('Command Component', () => {
       </Command>
     );
     const inputElement = screen.getByDisplayValue("Static Value");
-    fireEvent.change(inputElement, { target: { value: 'Attempted Change' } });
+    fireEvent.change(inputElement, { target: { value: "Attempted Change" } });
     expect(screen.getByDisplayValue("Static Value")).toBeInTheDocument();
   });
 
-  it('should display custom options when provided', () => {
+  it("should display custom options when provided", () => {
     const customOptions = [
       { value: "custom1", label: "Custom Option 1" },
       { value: "custom2", label: "Custom Option 2" },

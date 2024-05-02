@@ -1,4 +1,4 @@
-import { CustomTooltipProps } from './CustomTooltipProps';
+import { CustomTooltipProps } from "./CustomTooltipProps";
 
 interface BaseAnimationTimingProps {
   animationDuration?: number;

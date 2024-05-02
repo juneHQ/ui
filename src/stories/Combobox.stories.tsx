@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import {
   Command,
   CommandInput,
@@ -6,7 +6,7 @@ import {
   CommandOption,
   Lifecycle,
   Popover,
-} from '../../lib/main';
+} from "../../lib/main";
 
 import type { Meta, StoryObj } from "@storybook/react";
 const meta: Meta<typeof Command> = {
@@ -73,8 +73,8 @@ export const VeryLongOption: VeryLongOptionStory = {
   },
   argTypes: {
     customOptions: {
-      control: 'object',
-      description: 'Array of options for the combobox',
+      control: "object",
+      description: "Array of options for the combobox",
     },
   },
   render: (args) => {

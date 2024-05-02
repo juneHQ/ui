@@ -1,8 +1,8 @@
-import { HTMLAttributes } from 'react';
-import { Combobox } from '@headlessui/react';
-import { cx } from '../common/utils';
+import { HTMLAttributes } from "react";
+import { Combobox } from "@headlessui/react";
+import { cx } from "../common/utils";
 
-interface ICommandListProps extends Omit<HTMLAttributes<HTMLUListElement>, 'onCopy'> {
+interface ICommandListProps extends Omit<HTMLAttributes<HTMLUListElement>, "onCopy"> {
   className?: string;
   children?: React.ReactNode;
   "data-testid"?: string;

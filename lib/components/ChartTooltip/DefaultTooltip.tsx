@@ -1,7 +1,7 @@
-import { TooltipProps } from 'recharts';
-import { ChartTooltipValue } from './Value';
-import { ChartTooltipTitle } from './Title';
-import { ChartTooltipFooter } from './Footer';
+import { TooltipProps } from "recharts";
+import { ChartTooltipValue } from "./Value";
+import { ChartTooltipTitle } from "./Title";
+import { ChartTooltipFooter } from "./Footer";
 
 type TypeFromArray<T> = T extends Array<infer K> ? K : never;
 

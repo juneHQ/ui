@@ -1,8 +1,8 @@
-import { HTMLAttributes } from 'react';
-import { Combobox } from '@headlessui/react';
-import { cx } from '../common/utils';
+import { HTMLAttributes } from "react";
+import { Combobox } from "@headlessui/react";
+import { cx } from "../common/utils";
 
-interface ICommandProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
+interface ICommandProps extends Omit<HTMLAttributes<HTMLDivElement>, "onChange"> {
   className?: string;
   children?: React.ReactNode;
 }

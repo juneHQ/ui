@@ -1,5 +1,5 @@
-import { MagnifyingGlassIcon } from '../../lib/icons/MagnifyingGlassIcon';
-import { EmptyState } from '../../lib/components/EmptyState';
+import { MagnifyingGlassIcon } from "../../lib/icons/MagnifyingGlassIcon";
+import { EmptyState } from "../../lib/components/EmptyState";
 
 import type { Meta, StoryObj } from "@storybook/react";
 const meta: Meta<typeof EmptyState> = {

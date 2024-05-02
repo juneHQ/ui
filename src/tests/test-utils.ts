@@ -1,5 +1,5 @@
-import { afterEach } from 'vitest';
-import { cleanup, render } from '@testing-library/react';
+import { afterEach } from "vitest";
+import { cleanup, render } from "@testing-library/react";
 
 global.ResizeObserver = require("resize-observer-polyfill");
 
@@ -14,6 +14,6 @@ function customRender(ui: React.ReactElement, options = {}) {
   })
 }
 
-export * from '@testing-library/react'
-export { default as userEvent } from '@testing-library/user-event'
+export * from "@testing-library/react"
+export { default as userEvent } from "@testing-library/user-event"
 export { customRender as render }

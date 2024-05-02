@@ -1,5 +1,5 @@
-import { Bar as RechartsBar, BarProps, Rectangle } from 'recharts';
-import { addLoadedIdToElement } from '../common/utils';
+import { Bar as RechartsBar, BarProps, Rectangle } from "recharts";
+import { addLoadedIdToElement } from "../common/utils";
 
 const renderShape = (
   props: any,

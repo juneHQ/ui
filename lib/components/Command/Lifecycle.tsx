@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
 export const Lifecycle = ({ onUnmount }: { onUnmount?: () => void }) => {
   const onUnmountRef = useRef(onUnmount);

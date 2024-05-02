@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react';
-import { Combobox } from '@headlessui/react';
-import { cx } from '../common/utils';
-import { MagnifyingGlassIcon } from '../../icons/MagnifyingGlassIcon';
+import { useEffect, useRef } from "react";
+import { Combobox } from "@headlessui/react";
+import { cx } from "../common/utils";
+import { MagnifyingGlassIcon } from "../../icons/MagnifyingGlassIcon";
 
 interface ICommandInputProps {
   placeholder?: string;

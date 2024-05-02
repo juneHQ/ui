@@ -1,6 +1,6 @@
-import { YAxisProps } from 'recharts';
+import { YAxisProps } from "recharts";
 
-export { YAxis } from 'recharts';
+export { YAxis } from "recharts";
 
 export type { YAxisProps };
 

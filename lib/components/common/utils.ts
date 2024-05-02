@@ -1,4 +1,4 @@
-import { ValueFormatter } from '../../configurationTypes';
+import { ValueFormatter } from "../../configurationTypes";
 
 export const getYAxisDomain = (
   autoMinValue: boolean,

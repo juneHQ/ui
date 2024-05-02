@@ -1,6 +1,6 @@
-import { HTMLAttributes } from 'react';
-import { Combobox } from '@headlessui/react';
-import { cx } from '../common/utils';
+import { HTMLAttributes } from "react";
+import { Combobox } from "@headlessui/react";
+import { cx } from "../common/utils";
 
 interface ICommandOptionProps extends HTMLAttributes<HTMLLIElement> {
   value: string | (() => void);

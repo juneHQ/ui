@@ -1,7 +1,7 @@
 export const defaultXAxisProps = {
   paddingValue: 0,
   startEndOnly: false,
-  intervalType: 'preserveStartEnd',
+  intervalType: "preserveStartEnd",
   className: "text-xs fill-gray-600",
   tickGap: 5,
   fill: "",

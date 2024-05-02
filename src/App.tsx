@@ -9,8 +9,8 @@ import {
   Grid,
   XAxis,
   YAxis,
-} from '../lib/main';
-import { DefaultTooltip } from '../lib/components/ChartTooltip';
+} from "../lib/main";
+import { DefaultTooltip } from "../lib/components/ChartTooltip";
 
 function App() {
 
@@ -32,8 +32,8 @@ function App() {
               Sales: 3612,
             },
           ]}
-          categories={['Sales']}
-          index={'month'}
+          categories={["Sales"]}
+          index={"month"}
         >
           <ChartTooltip 
             content={({ active, payload, label }) => <DefaultTooltip label={label} active={active} payload={payload} valueFormatter={(p)=> `${p.Sales} Sales`} />}
