@@ -1,3 +1,6 @@
-import { CartesianGrid as Grid } from "recharts";
+import {
+  CartesianGrid as Grid,
+  type CartesianGridProps as GridProps,
+} from "recharts";
 
-export { Grid };
+export { Grid, type GridProps };

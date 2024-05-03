@@ -1,6 +1,6 @@
-import { LineProps } from "recharts";
+import { LineProps } from ".";
 
-export const defaultLineProps: Omit<LineProps, "ref"> = {
+export const defaultLineProps: LineProps = {
   type: "monotone",
   stroke: "current",
   strokeWidth: 1.5,
