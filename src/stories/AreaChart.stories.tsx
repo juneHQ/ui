@@ -1,17 +1,21 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import {
-  defaultGridProps,
-  defaultXAxisProps,
-  defaultYAxisProps,
-  Grid,
-  XAxis,
-  YAxis,
   Area,
   AreaChart,
-  ReferenceLine,
+  ChartTooltip,
   defaultAreaProps,
+  defaultDotProps,
+  defaultGridProps,
   defaultReferenceLineProps,
+  DefaultTooltip,
+  defaultXAxisProps,
+  defaultYAxisProps,
+  Dot,
+  Grid,
   Legend,
+  ReferenceLine,
+  XAxis,
+  YAxis,
 } from "../../lib/main.ts";
 
 type Story = StoryObj<typeof AreaChart>;
@@ -49,7 +53,14 @@ export const Default: Story = {
         <YAxis {...defaultYAxisProps} dataKey="y" />
         <XAxis {...defaultXAxisProps} dataKey="x" />
         <ReferenceLine {...defaultReferenceLineProps} x="Wed" />
-        <Area {...defaultAreaProps} dataKey="y" />
+        <ChartTooltip 
+            content={({ active, payload, label }) => <DefaultTooltip label={label} active={active} payload={payload} valueFormatter={(p)=> `${p.y} count`} />}
+        />
+        <Area {...defaultAreaProps} 
+         activeDot={
+          <Dot {...defaultDotProps} onClick={()=>{}} cursor={"pointer"} />
+        }
+        dataKey="y" />
         <Legend
           content={() => (
             <div className="text-center">
