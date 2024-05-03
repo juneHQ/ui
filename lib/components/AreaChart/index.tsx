@@ -13,7 +13,7 @@ export const AreaChart: React.FC<AreaChartProps> = ({
   ...rest
 }) => (
   <div
-    className={cx(className, "h-80 w-full")}
+    className={cx("h-80 w-full", className)}
     data-testid="area-chart-wrapper"
   >
     <RechartsResponsiveContainer width="100%" height="100%">
