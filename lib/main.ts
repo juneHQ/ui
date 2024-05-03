@@ -35,10 +35,14 @@ export { Line } from "./components/Line";
 export { defaultLineProps } from "./components/Line/constants";
 export { AreaChart, type AreaChartProps } from "./components/AreaChart";
 export { Area, type AreaProps } from "./components/Area";
-export { defaultAreaProps } from "./components/Area/constants.ts";
+export { defaultAreaProps } from "./components/Area/constants";
 export {
   ReferenceLine,
   type ReferenceLineProps,
 } from "./components/ReferenceLine";
 export { defaultReferenceLineProps } from "./components/ReferenceLine/constants.ts";
+
+export { Dot } from "./components/Dot";
+export { defaultDotProps } from "./components/Dot/constants";
+
 export { Legend, type LegendProps } from "./components/Legend";
