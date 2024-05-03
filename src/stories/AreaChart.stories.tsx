@@ -53,10 +53,10 @@ export const Default: Story = {
         <YAxis {...defaultYAxisProps} dataKey="y" />
         <XAxis {...defaultXAxisProps} dataKey="x" />
         <ReferenceLine {...defaultReferenceLineProps} x="Wed" />
-        <ChartTooltip 
+        <ChartTooltip
             content={({ active, payload, label }) => <DefaultTooltip label={label} active={active} payload={payload} valueFormatter={(p)=> `${p.y} count`} />}
         />
-        <Area {...defaultAreaProps} 
+        <Area {...defaultAreaProps}
          activeDot={
           <Dot {...defaultDotProps} onClick={()=>{}} cursor={"pointer"} />
         }
