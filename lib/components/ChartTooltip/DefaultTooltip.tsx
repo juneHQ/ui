@@ -1,20 +1,21 @@
-import { TooltipProps } from "recharts";
+import { TooltipProps as RechartsTooltipProps } from "recharts";
 import { ChartTooltipValue } from "./Value";
 import { ChartTooltipTitle } from "./Title";
 import { ChartTooltipFooter } from "./Footer";
-import { Payload } from "recharts/types/component/DefaultTooltipContent";
+import { Payload as RechartsTooltipPayload } from "recharts/types/component/DefaultTooltipContent";
 
-type TypeFromArray<T> = T extends Array<infer K> ? K : never;
+export type TooltipFullPayload = RechartsTooltipPayload<any, any>;
+type TooltipProps = RechartsTooltipProps<any, any>;
+type Payload = TooltipFullPayload["payload"];
 
-type PayloadEntry = TypeFromArray<any[]>;
-type LabelWithFormatter = string | ((payload: PayloadEntry) => string);
+type LabelWithFormatter = string | ((payload: Payload) => string);
 
-interface DefaultTooltipProps extends TooltipProps<any, any> {
+type DefaultTooltipProps = TooltipProps & {
   label: LabelWithFormatter;
-  valueFormatter: (entry: PayloadEntry, payload: Payload<any, any>) => string;
-  footerFormatter?: (entry: PayloadEntry) => string;
+  valueFormatter: (payload: Payload, fullPayload: TooltipFullPayload) => string;
+  footerFormatter?: (payload: Payload) => string;
   active?: boolean;
-}
+};
 
 export const DefaultTooltip: React.FC<DefaultTooltipProps> = ({
   label,
@@ -43,10 +44,7 @@ export const DefaultTooltip: React.FC<DefaultTooltipProps> = ({
   );
 };
 
-function getLabelText(
-  label: LabelWithFormatter,
-  payload: PayloadEntry,
-): string {
+function getLabelText(label: LabelWithFormatter, payload: Payload): string {
   if (typeof label === "string") return label;
   return label(payload);
 }

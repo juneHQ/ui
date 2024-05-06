@@ -35,6 +35,12 @@ export default meta;
 
 type Story = StoryObj<typeof ScatterChart>;
 
+type ScatterData = {
+  name: string;
+  frequency: number;
+  popularity: number;
+};
+
 const data = [
   {
     name: "Product A",
@@ -73,11 +79,11 @@ export const Default: Story = {
           {...scatterChartTooltipProps}
           content={({ active, payload }) => (
             <DefaultTooltip
-              label={(entry) => entry.name}
+              label={(payload: ScatterData) => payload.name}
               active={active}
               payload={payload}
-              valueFormatter={(_, p) => {
-                return `${p.name}: ${p.value}${p.unit}`;
+              valueFormatter={(_, fullPayload) => {
+                return `${fullPayload.name}: ${fullPayload.value}${fullPayload.unit}`;
               }}
             />
           )}
