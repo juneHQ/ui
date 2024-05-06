@@ -4,6 +4,7 @@ import {
   ChartTooltip,
   defaultGridProps,
   DefaultTooltip,
+  defaultTooltipProps,
   defaultXAxisProps,
   defaultYAxisProps,
   XAxis,
@@ -23,11 +24,10 @@ const data = [
   },
 ];
 
-
 const meta: Meta<typeof BarChart> = {
   title: "Visualizations/Chart/BarChart",
   component: BarChart,
-  args: { categories: ["Sales"], index: "month", data, className: "h-72"},
+  args: { categories: ["Sales"], index: "month", data, className: "h-72" },
   parameters: {
     sourceLink:
       "https://github.com/juneHQ/june-charts/tree/main/lib/components/BarChart/index.tsx",
@@ -39,13 +39,21 @@ export default meta;
 type Story = StoryObj<typeof BarChart>;
 
 export const Default: Story = {
-  args: { categories: ["Sales"], index: "month", data, className: "h-72"},
+  args: { categories: ["Sales"], index: "month", data, className: "h-72" },
   render: (args) => (
     <>
-      <BarChart {...args} >
-        <Grid  {...defaultGridProps}  />
-        <ChartTooltip 
-            content={({ active, payload, label }) => <DefaultTooltip label={label} active={active} payload={payload} valueFormatter={(p)=> `${p.Sales} Sales`} />}
+      <BarChart {...args}>
+        <Grid {...defaultGridProps} />
+        <ChartTooltip
+          {...defaultTooltipProps}
+          content={({ active, payload, label }) => (
+            <DefaultTooltip
+              label={label}
+              active={active}
+              payload={payload}
+              valueFormatter={(p) => `${p.Sales} Sales`}
+            />
+          )}
         />
         <BarItem dataKey="Sales" />
         <YAxis {...defaultYAxisProps} />
@@ -56,7 +64,6 @@ export const Default: Story = {
 };
 
 export const PowerUsersL7D: Story = {
-
   args: {
     categories: ["groupsPercentage"],
     index: "name",
@@ -108,12 +115,23 @@ export const PowerUsersL7D: Story = {
 
   render: (args) => (
     <BarChart {...args}>
-      <Grid  {...defaultGridProps}  />
-      <ChartTooltip 
-          content={({ active, payload, label }) => <DefaultTooltip label={label} active={active} payload={payload} valueFormatter={(payload: any) => `${payload.groupsPercentage}%`} footerFormatter={(payload: any) => `Click to see all ${payload.groupsCount} companies`} />}
+      <Grid {...defaultGridProps} />
+      <ChartTooltip
+        {...defaultTooltipProps}
+        content={({ active, payload, label }) => (
+          <DefaultTooltip
+            label={label}
+            active={active}
+            payload={payload}
+            valueFormatter={(payload: any) => `${payload.groupsPercentage}%`}
+            footerFormatter={(payload: any) =>
+              `Click to see all ${payload.groupsCount} companies`
+            }
+          />
+        )}
       />
       <BarItem dataKey="groupsPercentage" />
-      <YAxis {...defaultYAxisProps} tickFormatter={(p)=> `${p}%`} />
+      <YAxis {...defaultYAxisProps} tickFormatter={(p) => `${p}%`} />
       <XAxis {...defaultXAxisProps} dataKey="name" />
     </BarChart>
   ),

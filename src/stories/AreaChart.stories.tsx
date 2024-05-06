@@ -8,6 +8,7 @@ import {
   defaultGridProps,
   defaultReferenceLineProps,
   DefaultTooltip,
+  defaultTooltipProps,
   defaultXAxisProps,
   defaultYAxisProps,
   Dot,
@@ -55,7 +56,8 @@ export const Default: Story = {
       <YAxis {...defaultYAxisProps} dataKey="y" />
       <XAxis {...defaultXAxisProps} dataKey="x" />
       <ChartTooltip
-        content={({ active, payload, label }) => (
+          {...defaultTooltipProps}
+          content={({ active, payload, label }) => (
           <DefaultTooltip
             label={label}
             active={active}

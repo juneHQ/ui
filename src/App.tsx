@@ -3,6 +3,7 @@ import {
   BarItem,
   ChartTooltip,
   defaultGridProps,
+  defaultTooltipProps,
   defaultXAxisProps,
   defaultYAxisProps,
   EmptyState,
@@ -13,7 +14,6 @@ import {
 import { DefaultTooltip } from "../lib/components/ChartTooltip";
 
 function App() {
-
   return (
     <>
       <div>Empty Bar Chart</div>
@@ -35,9 +35,17 @@ function App() {
           categories={["Sales"]}
           index={"month"}
         >
-          <ChartTooltip 
-            content={({ active, payload, label }) => <DefaultTooltip label={label} active={active} payload={payload} valueFormatter={(p)=> `${p.Sales} Sales`} />}
-            />
+          <ChartTooltip
+            {...defaultTooltipProps}
+            content={({ active, payload, label }) => (
+              <DefaultTooltip
+                label={label}
+                active={active}
+                payload={payload}
+                valueFormatter={(p) => `${p.Sales} Sales`}
+              />
+            )}
+          />
           {/* This is ugly but it's a workaround for now waiting  https://github.com/recharts/recharts/issues/3615#issuecomment-1651094565 to be fixed */}
           <Grid {...defaultGridProps} />
           <BarItem dataKey="Sales" />
@@ -46,7 +54,7 @@ function App() {
         </BarChart>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
