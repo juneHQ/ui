@@ -51,3 +51,5 @@ export {
   ChartLabelText,
   type ChartLabelTextProps,
 } from "./components/ChartLabel/ChartLabelText.tsx";
+
+export { imagineColor } from "./components/common/utils";
