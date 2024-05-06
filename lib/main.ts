@@ -5,13 +5,22 @@ export type { BarChartProps } from "./components/BarChart";
 export { BarItem } from "./components/BarChart/BarItem";
 export type { BarItemProps } from "./components/BarChart/BarItem";
 export { XAxis } from "./components/XAxis";
-export { defaultXAxisProps } from "./components/XAxis/constants";
+export {
+  defaultXAxisProps,
+  scatterXAxisProps,
+} from "./components/XAxis/constants";
 export type { XAxisProps } from "./components/XAxis";
 export { YAxis } from "./components/YAxis";
-export { defaultYAxisProps } from "./components/YAxis/constants";
+export {
+  defaultYAxisProps,
+  scatterYAxisProps,
+} from "./components/YAxis/constants";
 export type { YAxisProps } from "./components/YAxis";
 export { Grid, type GridProps } from "./components/Grid";
-export { defaultGridProps } from "./components/Grid/constants";
+export {
+  defaultGridProps,
+  scatterGridProps,
+} from "./components/Grid/constants";
 export {
   ChartTooltip,
   DefaultTooltip,
@@ -61,9 +70,11 @@ export {
 export { TickText, type TickTextProps } from "./components/TickText";
 export { imagineColor } from "./components/common/utils";
 export { ChartCell, type ChartCellProps } from "./components/ChartCell";
+export { scatterChartCellProps } from "./components/ChartCell/constants";
 export {
   ScatterChart,
   type ScatterChartProps,
 } from "./components/ScatterChart";
 export { Scatter, type ScatterProps } from "./components/Scatter";
 export { defaultScatterProps } from "./components/Scatter/constants";
+export { ScatterChartTick } from "./components/ScatterChartTick";

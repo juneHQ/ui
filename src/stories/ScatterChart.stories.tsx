@@ -10,17 +10,17 @@ import {
   scatterChartTooltipProps,
   scatterReferenceLineXProps,
   scatterReferenceLineYProps,
-  TickText,
   XAxis,
   YAxis,
+  Grid,
+  ScatterChartTick,
+  scatterGridProps,
+  scatterYAxisProps,
+  scatterXAxisProps,
+  scatterChartCellProps,
 } from "../../lib/main";
-import { Grid } from "../../lib/components/Grid";
 
 import type { Meta, StoryObj } from "@storybook/react";
-import { scatterGridProps } from "../../lib/components/Grid/constants.ts";
-import { scatterYAxisProps } from "../../lib/components/YAxis/constants.ts";
-import { scatterXAxisProps } from "../../lib/components/XAxis/constants.ts";
-import { scatterChartCellProps } from "../../lib/components/ChartCell/constants.ts";
 
 const meta: Meta<typeof ScatterChart> = {
   title: "Visualizations/Chart/ScatterChart",
@@ -98,18 +98,9 @@ export const Default: Story = {
           name="Popularity"
           unit="%"
           dataKey="popularity"
-          tick={({
-            x,
-            y,
-            ...props
-          }: {
-            x: number;
-            y: number;
-            payload: { value: number };
-          }) => (
-            <TickText x={x - 5} y={y + 5} {...props}>
-              {props.payload.value}%
-            </TickText>
+          type="number"
+          tick={(props) => (
+            <ScatterChartTick {...props} dx={-5} dy={5} unit="%" />
           )}
         />
         <XAxis
@@ -117,17 +108,8 @@ export const Default: Story = {
           name="Frequency"
           dataKey="frequency"
           unit="%"
-          tick={({
-            y,
-            ...props
-          }: {
-            y: number;
-            payload: { value: number };
-          }) => (
-            <TickText y={y + 10} {...props}>
-              {props.payload.value}%
-            </TickText>
-          )}
+          type="number"
+          tick={(props) => <ScatterChartTick {...props} dy={10} unit="%" />}
         />
       </ScatterChart>
     );
