@@ -1,6 +1,3 @@
-export declare const defaultGridProps: {
-    vertical: boolean;
-    horizontal: boolean;
-    strokeDasharray: string;
-    className: string;
-};
+import { GridProps } from '.';
+
+export declare const defaultGridProps: GridProps;

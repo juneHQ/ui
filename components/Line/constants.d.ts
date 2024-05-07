@@ -1,3 +1,3 @@
-import { LineProps } from 'recharts';
+import { LineProps } from '.';
 
-export declare const defaultLineProps: Omit<LineProps, "ref">;
+export declare const defaultLineProps: LineProps;

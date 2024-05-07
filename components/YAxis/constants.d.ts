@@ -1,7 +1,3 @@
-export declare const defaultYAxisProps: {
-    axisLine: boolean;
-    tickLine: boolean;
-    className: string;
-    fill: string;
-    stroke: string;
-};
+import { YAxisProps } from 'recharts';
+
+export declare const defaultYAxisProps: YAxisProps;
