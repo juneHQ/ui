@@ -116,7 +116,7 @@ export const Button = React.forwardRef<
   if (rest.href) {
     return (
       <a
-        className={cx(className, buttonStyle)}
+        className={cx(buttonStyle, className)}
         {...(rest as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
         ref={ref as React.RefObject<HTMLAnchorElement>}
       >
@@ -133,7 +133,7 @@ export const Button = React.forwardRef<
     <button
       disabled={isDisabled}
       aria-label={loading && !loadingText ? "Loading, please wait" : undefined}
-      className={cx(className, buttonStyle)}
+      className={cx(buttonStyle, className)}
       {...(buttonProps as React.ButtonHTMLAttributes<HTMLButtonElement>)}
       ref={ref as React.RefObject<HTMLButtonElement>}
     >

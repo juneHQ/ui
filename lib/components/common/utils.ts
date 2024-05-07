@@ -1,4 +1,5 @@
 import { ValueFormatter } from "../../configurationTypes";
+import { twMerge } from "tailwind-merge";
 
 export const getYAxisDomain = (
   autoMinValue: boolean,
@@ -9,7 +10,6 @@ export const getYAxisDomain = (
   const maxDomain = maxValue ?? "auto";
   return [minDomain, maxDomain];
 };
-
 
 export const constructCategoryColors = (
   categories: string[],
@@ -22,11 +22,15 @@ export const constructCategoryColors = (
   return categoryColors;
 };
 
-
 export function deepEqual(obj1: any, obj2: any) {
   if (obj1 === obj2) return true;
 
-  if (typeof obj1 !== "object" || typeof obj2 !== "object" || obj1 === null || obj2 === null)
+  if (
+    typeof obj1 !== "object" ||
+    typeof obj2 !== "object" ||
+    obj1 === null ||
+    obj2 === null
+  )
     return false;
 
   const keys1 = Object.keys(obj1);
@@ -44,14 +48,16 @@ export function deepEqual(obj1: any, obj2: any) {
 export function cx(
   ...args: Array<undefined | null | string | boolean>
 ): string {
-  return args
-    .flat()
-    .filter((x) => typeof x === "string")
-    .join(" ");
+  return twMerge(
+    args
+      .flat()
+      .filter((x) => typeof x === "string")
+      .join(" "),
+  );
 }
 
-
-export const defaultValueFormatter: ValueFormatter = (value: number) => value.toString();
+export const defaultValueFormatter: ValueFormatter = (value: number) =>
+  value.toString();
 
 // We use this internally at June to track the loaded state of the chart when taking screenshots for things like Email & Slack digests
 export function addLoadedIdToElement() {

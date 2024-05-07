@@ -29,7 +29,8 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.19",
-    "recharts": "^2.12.5"
+    "recharts": "^2.12.5",
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^8.0.8",
