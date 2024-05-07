@@ -3,19 +3,18 @@ import { ChartTooltipValue } from "./Value";
 import { ChartTooltipTitle } from "./Title";
 import { ChartTooltipFooter } from "./Footer";
 import { Payload as RechartsTooltipPayload } from "recharts/types/component/DefaultTooltipContent";
+import { ChartTooltipContent } from "./Content.tsx";
 
 export type TooltipFullPayload = RechartsTooltipPayload<any, any>;
 type TooltipProps = RechartsTooltipProps<any, any>;
 type Payload = TooltipFullPayload["payload"];
 
-type LabelWithFormatter = string | ((payload: Payload) => string);
-
-type DefaultTooltipProps = TooltipProps & {
-  label: LabelWithFormatter;
-  valueFormatter: (payload: Payload, fullPayload: TooltipFullPayload) => string;
+interface DefaultTooltipProps extends TooltipProps {
+  label: string;
+  valueFormatter: (payload: Payload) => string;
   footerFormatter?: (payload: Payload) => string;
   active?: boolean;
-};
+}
 
 export const DefaultTooltip: React.FC<DefaultTooltipProps> = ({
   label,
@@ -27,24 +26,17 @@ export const DefaultTooltip: React.FC<DefaultTooltipProps> = ({
   const firstPayload = payload?.[0];
   if (!active || !firstPayload) return null;
 
-  const labelText = getLabelText(label, firstPayload.payload);
-
   return (
-    <div className="bg-gray-900 px-3 py-2 rounded-md">
-      <ChartTooltipTitle>{labelText}</ChartTooltipTitle>
+    <ChartTooltipContent>
+      <ChartTooltipTitle>{label}</ChartTooltipTitle>
       {payload?.map((p, index) => (
         <div key={index}>
-          <ChartTooltipValue value={valueFormatter(p.payload, p)} />
+          <ChartTooltipValue>{valueFormatter(p.payload)}</ChartTooltipValue>
           {footerFormatter && (
             <ChartTooltipFooter subtitle={footerFormatter(p.payload)} />
           )}
         </div>
       ))}
-    </div>
+    </ChartTooltipContent>
   );
 };
-
-function getLabelText(label: LabelWithFormatter, payload: Payload): string {
-  if (typeof label === "string") return label;
-  return label(payload);
-}

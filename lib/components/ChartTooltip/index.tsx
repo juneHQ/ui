@@ -6,6 +6,7 @@ import { ChartTooltipValue } from "./Value";
 import { ChartTooltipTitle } from "./Title";
 import { ChartTooltipFooter } from "./Footer";
 import { DefaultTooltip } from "./DefaultTooltip";
+import { ChartTooltipContent } from "./Content";
 
 export {
   ChartTooltip,
@@ -13,5 +14,6 @@ export {
   ChartTooltipValue,
   ChartTooltipFooter,
   DefaultTooltip,
+  ChartTooltipContent,
   type ChartTooltipProps,
 };

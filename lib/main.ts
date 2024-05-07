@@ -27,6 +27,7 @@ export {
   ChartTooltipTitle,
   ChartTooltipValue,
   ChartTooltipFooter,
+  ChartTooltipContent,
   type ChartTooltipProps,
 } from "./components/ChartTooltip";
 export {

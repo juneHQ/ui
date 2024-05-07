@@ -46,44 +46,4 @@ describe("DefaultTooltip", () => {
     expect(screen.getByText("$100")).toBeInTheDocument();
     expect(screen.getByText("Sub: 100")).toBeInTheDocument();
   });
-
-  it("should format values using full payload", () => {
-    const payload = { popularity: 12, frequency: 13 };
-    const fullPayload = [
-      { name: "Popularity", value: 12, unit: "%", payload },
-      { name: "Frequency", value: 13, unit: "%", payload },
-    ];
-    render(
-      <DefaultTooltip
-        label="Test Label"
-        payload={fullPayload}
-        active={true}
-        valueFormatter={(_, fullPayload) => {
-          return `${fullPayload.name}: ${fullPayload.value}${fullPayload.unit}`;
-        }}
-      />,
-    );
-
-    expect(screen.getByText("Popularity: 12%")).toBeInTheDocument();
-    expect(screen.getByText("Frequency: 13%")).toBeInTheDocument();
-  });
-
-  it("should format label when label is a function", () => {
-    const payload = [
-      {
-        value: 123,
-        payload: { name: "test-entry-name" },
-      },
-    ];
-    render(
-      <DefaultTooltip
-        label={(p: { name: string }) => `${p.name}`}
-        payload={payload}
-        active={true}
-        valueFormatter={(p: { value: number }) => `${p.value}`}
-      />,
-    );
-
-    expect(screen.getByText("test-entry-name")).toBeInTheDocument();
-  });
 });
