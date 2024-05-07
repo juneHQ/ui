@@ -10,7 +10,7 @@ export type { XAxisProps } from "./components/XAxis";
 export { YAxis } from "./components/YAxis";
 export { defaultYAxisProps } from "./components/YAxis/constants";
 export type { YAxisProps } from "./components/YAxis";
-export { Grid } from "./components/Grid";
+export { Grid, type GridProps } from "./components/Grid";
 export { defaultGridProps } from "./components/Grid/constants";
 export {
   ChartTooltip,

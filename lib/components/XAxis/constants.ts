@@ -1,9 +1,9 @@
-export const defaultXAxisProps = {
-  paddingValue: 0,
-  startEndOnly: false,
-  intervalType: "preserveStartEnd",
+import { XAxisProps } from "recharts";
+
+export const defaultXAxisProps: XAxisProps = {
+  interval: "preserveStartEnd",
   className: "text-xs fill-gray-600",
-  tickGap: 5,
+  minTickGap: 5,
   fill: "",
   stroke: "",
 };

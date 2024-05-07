@@ -1,6 +1,6 @@
 import { AreaProps } from "./index.tsx";
 
-export const defaultAreaProps: Omit<AreaProps, "ref"> = {
+export const defaultAreaProps: AreaProps = {
   type: "monotone",
   stroke: "inherit",
   strokeWidth: 1.5,
