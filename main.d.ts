@@ -28,3 +28,5 @@ export { defaultReferenceLineProps } from './components/ReferenceLine/constants.
 export { Dot } from './components/Dot';
 export { defaultDotProps } from './components/Dot/constants';
 export { Legend, type LegendProps } from './components/Legend';
+export { ChartLabel, type ChartLabelProps } from './components/ChartLabel';
+export { ChartLabelText, type ChartLabelTextProps, } from './components/ChartLabel/ChartLabelText.tsx';
