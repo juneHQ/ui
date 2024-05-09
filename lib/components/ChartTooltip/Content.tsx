@@ -9,7 +9,7 @@ export const ChartTooltipContent: React.FC<ContentProps> = ({
 }) => {
   return (
     <div
-      className={cx(className, "bg-gray-900 px-3 py-2 rounded-md")}
+      className={cx("bg-gray-900 px-3 py-2 rounded-md", className)}
       {...rest}
     >
       {children}
