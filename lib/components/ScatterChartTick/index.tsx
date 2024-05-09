@@ -8,7 +8,7 @@ type ScatterChartTickProps = {
   unit?: string;
   dx?: number;
   dy?: number;
-};
+} & React.SVGProps<SVGTextElement>;
 
 export const ScatterChartTick: React.FC<ScatterChartTickProps> = ({
   x,
@@ -17,11 +17,19 @@ export const ScatterChartTick: React.FC<ScatterChartTickProps> = ({
   dy = 0,
   unit,
   ...rest
-}: ScatterChartTickProps) => {
-  return (
-    <TickText x={x + dx} y={y + dy} {...rest}>
-      {rest.payload.value}
-      {unit}
-    </TickText>
-  );
-};
+}: ScatterChartTickProps) => (
+  <TickText
+    x={x + dx}
+    y={y + dy}
+    fill={rest.fill}
+    height={rest.height}
+    name={rest.name}
+    orientation={rest.orientation}
+    stroke={rest.stroke}
+    textAnchor={rest.textAnchor}
+    width={rest.width}
+  >
+    {rest.payload.value}
+    {unit}
+  </TickText>
+);

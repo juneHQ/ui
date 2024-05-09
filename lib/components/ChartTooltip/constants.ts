@@ -11,6 +11,6 @@ export const defaultTooltipProps: TooltipProps<any, any> = {
 
 export const scatterChartTooltipProps: TooltipProps<any, any> = {
   cursor,
-  isAnimationActive: false, // todo: verify, in app this is true by default
+  isAnimationActive: false,
   wrapperStyle: { outline: "none" },
 };
