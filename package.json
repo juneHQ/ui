@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.19",
-    "recharts": "^2.12.5",
+    "recharts": "^2.12.7",
     "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
