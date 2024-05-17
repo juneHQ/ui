@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {
+  Button,
   Command,
   CommandInput,
   CommandList,
@@ -28,7 +29,7 @@ export const Default: Story = {
     const [searchValue, setSearchValue] = useState("");
     return  <Popover className="relative">
     <Popover.Button>
-      ButtonComponent (TODO: replace with our button component, once it's ready)
+      <Button>Select an option</Button>
     </Popover.Button>
     <Popover.Panel>
       <>
