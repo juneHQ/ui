@@ -37,7 +37,7 @@ export function ChartLabelText({
       dy={dy}
       dx={dx}
       stroke="none"
-      className={cx(className, "fill-purple-500")}
+      className={cx("fill-purple-500", className)}
     >
       {children}
     </text>

@@ -9,7 +9,10 @@ import {
 describe("utils", () => {
   describe("getYAxisDomain", () => {
     it("should return auto for both min and max when autoMinValue is true", () => {
-      expect(getYAxisDomain(true, undefined, undefined)).toEqual(["auto", "auto"]);
+      expect(getYAxisDomain(true, undefined, undefined)).toEqual([
+        "auto",
+        "auto",
+      ]);
     });
 
     it("should return provided minValue and auto for max when autoMinValue is false", () => {
@@ -54,7 +57,13 @@ describe("utils", () => {
 
   describe("cx", () => {
     it("should concatenate class names into a single string", () => {
-      expect(cx("class1", null, "class2", undefined, false, "class3")).toBe("class1 class2 class3");
+      expect(cx("class1", null, "class2", undefined, false, "class3")).toBe(
+        "class1 class2 class3",
+      );
+    });
+
+    it("should override tailwind classes", () => {
+      expect(cx("text-red-500", "text-blue-500")).toBe("text-blue-500");
     });
   });
 

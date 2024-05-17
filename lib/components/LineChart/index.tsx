@@ -14,7 +14,7 @@ export const LineChart: React.FC<LineChartProps> = ({
   ...rest
 }) => (
   <div
-    className={cx(className, "h-80 w-full")}
+    className={cx("h-80 w-full", className)}
     data-testid="line-chart-wrapper"
   >
     <RechartsResponsiveContainer width="100%" height="100%">
