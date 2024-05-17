@@ -1,4 +1,4 @@
-import { XAxisProps } from 'recharts';
+import { XAxis, XAxisProps as RechartsXAxisProps } from 'recharts';
 
-export { XAxis } from 'recharts';
-export type { XAxisProps };
+type XAxisProps = Omit<RechartsXAxisProps, "ref">;
+export { XAxis, type XAxisProps };

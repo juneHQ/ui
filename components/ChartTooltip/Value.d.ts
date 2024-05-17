@@ -1,4 +1,4 @@
 /// <reference types="react" />
-export declare const ChartTooltipValue: React.FC<{
-    value: string;
-}>;
+type ChartTooltipValueProps = React.HTMLProps<HTMLParagraphElement>;
+export declare const ChartTooltipValue: React.FC<ChartTooltipValueProps>;
+export {};

@@ -1,4 +1,4 @@
 /// <reference types="react" />
-export declare const ChartTooltipTitle: React.FC<{
-    children: React.ReactNode;
-}>;
+type ChartTooltipTitleProps = React.HTMLProps<HTMLParagraphElement>;
+export declare const ChartTooltipTitle: React.FC<ChartTooltipTitleProps>;
+export {};

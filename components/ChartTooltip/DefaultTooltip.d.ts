@@ -1,10 +1,13 @@
-import { TooltipProps } from 'recharts';
+import { Payload as RechartsTooltipPayload } from 'recharts/types/component/DefaultTooltipContent';
+import { TooltipProps as RechartsTooltipProps } from 'recharts';
 
-type TypeFromArray<T> = T extends Array<infer K> ? K : never;
-interface DefaultTooltipProps extends TooltipProps<any, any> {
+export type TooltipFullPayload = RechartsTooltipPayload<any, any>;
+type TooltipProps = RechartsTooltipProps<any, any>;
+type Payload = TooltipFullPayload["payload"];
+interface DefaultTooltipProps extends TooltipProps {
     label: string;
-    valueFormatter: (payload: TypeFromArray<any[]>) => string;
-    footerFormatter?: (payload: TypeFromArray<any[]>) => string;
+    valueFormatter: (payload: Payload) => string;
+    footerFormatter?: (payload: Payload) => string;
     active?: boolean;
 }
 export declare const DefaultTooltip: React.FC<DefaultTooltipProps>;
