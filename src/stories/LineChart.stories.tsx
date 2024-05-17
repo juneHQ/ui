@@ -9,6 +9,7 @@ import {
   defaultYAxisProps,
   XAxis,
   YAxis,
+  defaultTooltipProps,
 } from "../../lib/main";
 import { Grid } from "../../lib/components/Grid";
 
@@ -57,6 +58,7 @@ export const Default: Story = {
       <LineChart {...args}>
         <Grid {...defaultGridProps} />
         <ChartTooltip
+          {...defaultTooltipProps}
           content={({ active, payload, label }) => (
             <DefaultTooltip
               label={label}

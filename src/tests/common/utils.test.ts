@@ -1,9 +1,11 @@
+import { visualizationColors } from "../../../lib/components/common/colors";
 import {
   constructCategoryColors,
   cx,
   deepEqual,
   defaultValueFormatter,
   getYAxisDomain,
+  imagineColor,
 } from "../../../lib/components/common/utils";
 
 describe("utils", () => {
@@ -70,6 +72,30 @@ describe("utils", () => {
   describe("defaultValueFormatter", () => {
     it("should convert a number to a string", () => {
       expect(defaultValueFormatter(123)).toBe("123");
+    });
+  });
+
+  describe("imagineColor", () => {
+    it('should return a color from the "visualizationColors" array', () => {
+      const color = imagineColor(0);
+      expect(color).toBe(visualizationColors[0]);
+    });
+    it("should return different colors by number input", () => {
+      const first = imagineColor(0);
+      const second = imagineColor(1);
+      expect(first).not.toBe(second);
+    });
+
+    it("should return different colors by string input", () => {
+      const first = imagineColor("a");
+      const second = imagineColor("b");
+      expect(first).not.toBe(second);
+    });
+
+    it("should return the same output for the same string", () => {
+      const first = imagineColor("long-test-input-123");
+      const second = imagineColor("long-test-input-123");
+      expect(first).toBe(second);
     });
   });
 });

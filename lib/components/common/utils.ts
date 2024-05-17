@@ -1,5 +1,6 @@
-import { ValueFormatter } from "../../configurationTypes";
 import { twMerge } from "tailwind-merge";
+import { ValueFormatter } from "../../configurationTypes";
+import { visualizationColors } from "./colors.tsx";
 
 export const getYAxisDomain = (
   autoMinValue: boolean,
@@ -67,4 +68,23 @@ export function addLoadedIdToElement() {
   if (elements.length > 0 && elements[0]) {
     elements[0].id = "loaded";
   }
+}
+
+/**
+ * Returns a June visualization color deterministically based on the input.
+ * @param input - string or number
+ */
+export function imagineColor(input: number | string): string {
+  const index = typeof input === "number" ? input : getUniqueColorIndex(input);
+  return visualizationColors[index % visualizationColors.length];
+}
+
+function getUniqueColorIndex(input: string): number {
+  let hash = 0;
+  for (let i = 0; i < input.length; i++) {
+    const char = input.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash |= 0; // Ensures the hash is a 32-bit integer
+  }
+  return Math.abs(hash);
 }

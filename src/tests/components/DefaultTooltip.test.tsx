@@ -1,4 +1,3 @@
-import React from "react";
 import { render, screen } from "../test-utils";
 import { DefaultTooltip } from "../../../lib/main";
 
@@ -32,7 +31,8 @@ describe("DefaultTooltip", () => {
   });
 
   it("should render subtitle when tooltipSubtitleFormatter is provided", () => {
-    const mockTooltipSubtitleFormatter = (payload: any) => `Sub: ${payload.value}`;
+    const mockTooltipSubtitleFormatter = (payload: any) =>
+      `Sub: ${payload.value}`;
     render(
       <DefaultTooltip
         label="Test Label"

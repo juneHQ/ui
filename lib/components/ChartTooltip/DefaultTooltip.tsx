@@ -1,31 +1,42 @@
-import { TooltipProps } from "recharts";
+import { TooltipProps as RechartsTooltipProps } from "recharts";
 import { ChartTooltipValue } from "./Value";
 import { ChartTooltipTitle } from "./Title";
 import { ChartTooltipFooter } from "./Footer";
+import { Payload as RechartsTooltipPayload } from "recharts/types/component/DefaultTooltipContent";
+import { ChartTooltipContent } from "./Content.tsx";
 
-type TypeFromArray<T> = T extends Array<infer K> ? K : never;
+export type TooltipFullPayload = RechartsTooltipPayload<any, any>;
+type TooltipProps = RechartsTooltipProps<any, any>;
+type Payload = TooltipFullPayload["payload"];
 
-interface DefaultTooltipProps extends TooltipProps<any, any> {
+interface DefaultTooltipProps extends TooltipProps {
   label: string;
-  valueFormatter: (payload: TypeFromArray<any[]>) => string;
-  footerFormatter?: (payload: TypeFromArray<any[]>) => string;
+  valueFormatter: (payload: Payload) => string;
+  footerFormatter?: (payload: Payload) => string;
   active?: boolean;
 }
 
-export const DefaultTooltip: React.FC<DefaultTooltipProps> = ({ label, valueFormatter, footerFormatter, active, payload }) => {
+export const DefaultTooltip: React.FC<DefaultTooltipProps> = ({
+  label,
+  valueFormatter,
+  footerFormatter,
+  active,
+  payload,
+}) => {
   const firstPayload = payload?.[0];
   if (!active || !firstPayload) return null;
 
   return (
-    <div className="bg-gray-900 px-3 py-2 rounded-md">
+    <ChartTooltipContent>
       <ChartTooltipTitle>{label}</ChartTooltipTitle>
-      {payload
-        ?.map((p, index) => (
-          <div key={index}>
-            <ChartTooltipValue value={valueFormatter(p.payload)}/>
-            {footerFormatter && <ChartTooltipFooter subtitle={footerFormatter(p.payload)} />}
-          </div>
-        ))}
-    </div>
+      {payload?.map((p, index) => (
+        <div key={index}>
+          <ChartTooltipValue>{valueFormatter(p.payload)}</ChartTooltipValue>
+          {footerFormatter && (
+            <ChartTooltipFooter subtitle={footerFormatter(p.payload)} />
+          )}
+        </div>
+      ))}
+    </ChartTooltipContent>
   );
 };
