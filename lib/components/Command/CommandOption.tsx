@@ -1,8 +1,8 @@
 import { HTMLAttributes } from "react";
-import { Combobox } from "@headlessui/react";
+import { ComboboxOption } from "@headlessui/react";
 import { cx } from "../common/utils";
 
-interface ICommandOptionProps extends HTMLAttributes<HTMLLIElement> {
+interface ICommandOptionProps extends HTMLAttributes<HTMLDivElement> {
   value: string | (() => void);
   disabled?: boolean;
   activeClassName?: string;
@@ -21,13 +21,13 @@ export const CommandOption: React.FC<ICommandOptionProps> = ({
   ...props
 }) => {
   return (
-    <Combobox.Option
+    <ComboboxOption
       data-testid={testId}
       value={value}
       disabled={disabled}
       {...props}
     >
-      {({ active: isActive }) => (
+      {({ focus: isActive }) => (
         <div
           className={cx(
             "flex w-full cursor-pointer items-center justify-between rounded-md px-2 py-1.5",
@@ -43,6 +43,6 @@ export const CommandOption: React.FC<ICommandOptionProps> = ({
           {rightIcon}
         </div>
       )}
-    </Combobox.Option>
+    </ComboboxOption>
   );
 };

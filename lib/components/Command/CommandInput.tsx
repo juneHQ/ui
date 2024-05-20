@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Combobox } from "@headlessui/react";
+import { ComboboxInput } from "@headlessui/react";
 import { cx } from "../common/utils";
 import { MagnifyingGlassIcon } from "../../icons/MagnifyingGlassIcon";
 
@@ -51,14 +51,14 @@ export const CommandInput: React.FC<ICommandInputProps> = ({
   return (
     <div className={cx("relative flex items-center", className ?? "")}>
       {icon}
-      <Combobox.Input
+      <ComboboxInput
         as="input"
         ref={inputRef}
         autoComplete="off"
         value={value ?? ""}
         onChange={onChange}
         placeholder={placeholder ?? "Search..."}
-        className="block w-full rounded-md border-0 py-1.5 pl-8 pr-14 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  focus:ring-gray-300 sm:text-sm sm:leading-4"
+        className="block w-full rounded-md border-0 py-1.5 pl-8 pr-14 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-gray-300 sm:text-sm sm:leading-4 font-medium normal-case tracking-normal"
       />
     </div>
   );
