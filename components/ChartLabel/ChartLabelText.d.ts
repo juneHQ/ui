@@ -1,5 +1,5 @@
-import { default as React } from '../../../node_modules/react';
 import { ViewBox } from 'recharts/types/util/types';
+import { default as React } from '../../../node_modules/react';
 
 export type ChartLabelTextProps = {
     children: React.ReactNode;

@@ -1,5 +1,5 @@
-import { BaseChartProps } from '../common/BaseChartProps';
 import { default as React } from '../../../node_modules/react';
+import { BaseChartProps } from '../common/BaseChartProps';
 
 export interface BarChartProps extends BaseChartProps {
     children?: React.ReactNode;

@@ -1,5 +1,5 @@
-import { Payload as RechartsTooltipPayload } from 'recharts/types/component/DefaultTooltipContent';
 import { TooltipProps as RechartsTooltipProps } from 'recharts';
+import { Payload as RechartsTooltipPayload } from 'recharts/types/component/DefaultTooltipContent';
 
 export type TooltipFullPayload = RechartsTooltipPayload<any, any>;
 type TooltipProps = RechartsTooltipProps<any, any>;
