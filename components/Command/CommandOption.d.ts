@@ -1,6 +1,6 @@
 import { HTMLAttributes } from '../../../node_modules/react';
 
-interface ICommandOptionProps extends HTMLAttributes<HTMLLIElement> {
+interface ICommandOptionProps extends HTMLAttributes<HTMLDivElement> {
     value: string | (() => void);
     disabled?: boolean;
     activeClassName?: string;
