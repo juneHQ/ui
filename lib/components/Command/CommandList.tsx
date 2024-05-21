@@ -1,5 +1,5 @@
 import { HTMLAttributes } from "react";
-import { Combobox } from "@headlessui/react";
+import { ComboboxOptions } from "@headlessui/react";
 import { cx } from "../common/utils";
 
 interface ICommandListProps extends Omit<HTMLAttributes<HTMLUListElement>, "onCopy"> {
@@ -15,7 +15,7 @@ export const CommandList: React.FC<ICommandListProps> = ({
   ...props
 }) => {
   return (
-    <Combobox.Options
+    <ComboboxOptions
       static
       as="ul"
       className={cx(className ?? "flex flex-col gap-1")}
@@ -23,6 +23,6 @@ export const CommandList: React.FC<ICommandListProps> = ({
       {...props}
     >
       {children}
-    </Combobox.Options>
+    </ComboboxOptions>
   );
 };
