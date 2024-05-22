@@ -1,3 +1,3 @@
-import { Popover } from '@headlessui/react';
+import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react';
 
-export { Popover };
+export { Popover, PopoverButton, PopoverPanel };

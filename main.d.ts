@@ -16,7 +16,7 @@ export { defaultTooltipProps, scatterChartTooltipProps, } from './components/Cha
 export { EmptyState } from './components/EmptyState';
 export type { EmptyStateProps } from './components/EmptyState';
 export { Lifecycle, Command, CommandOption, CommandList, CommandInput, } from './components/Command';
-export { Popover } from './components/Popover';
+export { Popover, PopoverButton, PopoverPanel } from './components/Popover';
 export { Button, type ButtonProps } from './components/Button';
 export { LineChart, type LineChartProps } from './components/LineChart';
 export { Line } from './components/Line';
