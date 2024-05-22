@@ -18,7 +18,7 @@ const meta: Meta<typeof Command> = {
 	args: {},
 	parameters: {
 		sourceLink:
-			"https://github.com/juneHQ/june-charts/tree/main/lib/components/BarChart/index.tsx",
+			"https://github.com/juneHQ/ui/tree/main/lib/components/Command/index.tsx",
 	},
 };
 
